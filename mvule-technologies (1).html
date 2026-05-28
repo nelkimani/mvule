@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Mvule Technologies — Premium software solutions, ICT consultancy, and digital transformation for modern African enterprise.">
+<title>Mvule Technologies — Rooted in Innovation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* ─── RESET & BASE ─── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --c0:#060C10;
+  --c1:#0A1520;
+  --c2:#0F1E2E;
+  --c3:#152840;
+  --em:#2ECC6A;
+  --em2:#1DB954;
+  --em3:#0F6B32;
+  --em4:#3EFF7E;
+  --muted:#4A6B80;
+  --dim:#1E3448;
+  --white:#F0F8F4;
+  --silver:#A8C4B8;
+  --accent:#00FFB3;
+  --gold:#C8A84B;
+
+  /* Spacing scale */
+  --sp-xs:0.5rem;
+  --sp-sm:1rem;
+  --sp-md:1.5rem;
+  --sp-lg:2.5rem;
+  --sp-xl:4rem;
+  --sp-2xl:6rem;
+
+  /* Radius */
+  --r-sm:4px;
+  --r-md:8px;
+}
+
+html{
+  scroll-behavior:smooth;
+  font-size:16px;
+  -webkit-text-size-adjust:100%;
+}
+body{
+  font-family:'Outfit',sans-serif;
+  background:var(--c0);
+  color:var(--white);
+  overflow-x:hidden;
+  line-height:1.6;
+  min-width:320px;
+}
+
+/* ─── CUSTOM CURSOR (desktop only) ─── */
+@media(hover:hover) and (pointer:fine){
+  body{cursor:none;}
+  .cursor{
+    width:8px;height:8px;
+    background:var(--em);
+    border-radius:50%;
+    position:fixed;z-index:9999;
+    pointer-events:none;
+    transition:transform 0.1s;
+    mix-blend-mode:screen;
+    will-change:left,top;
+  }
+  .cursor-ring{
+    width:32px;height:32px;
+    border:1px solid rgba(46,204,106,0.4);
+    border-radius:50%;
+    position:fixed;z-index:9998;
+    pointer-events:none;
+    transition:transform 0.15s,width 0.2s,height 0.2s;
+    will-change:left,top;
+  }
+}
+@media(hover:none),(pointer:coarse){
+  .cursor,.cursor-ring{display:none;}
+}
+
+/* ─── NOISE OVERLAY ─── */
+body::before{
+  content:'';
+  position:fixed;inset:0;z-index:1000;
+  pointer-events:none;
+  opacity:0.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size:200px;
+}
+
+/* ─── TYPOGRAPHY SCALE ─── */
+.display-xl{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,10vw,8.5rem);line-height:0.92;letter-spacing:0.01em;}
+.display-lg{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,5rem);line-height:0.95;letter-spacing:0.02em;}
+.mono-sm{font-family:'JetBrains Mono',monospace;font-size:clamp(0.58rem,1.5vw,0.65rem);letter-spacing:0.2em;text-transform:uppercase;}
+.body-sm{font-size:clamp(0.78rem,2vw,0.85rem);line-height:1.7;font-weight:300;}
+
+/* ─── SKIP TO CONTENT ─── */
+.skip-link{
+  position:absolute;top:-100%;left:0;z-index:10000;
+  background:var(--em);color:var(--c0);
+  padding:0.75rem 1.5rem;
+  font-family:'Outfit',sans-serif;font-weight:600;
+  text-decoration:none;
+}
+.skip-link:focus{top:0;}
+
+/* ════════════════════════════
+   NAV
+════════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem clamp(1rem,4vw,3.5rem);
+  border-bottom:1px solid rgba(46,204,106,0.08);
+  background:rgba(6,12,16,0.85);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  min-height:64px;
+}
+
+.nav-logo{
+  display:flex;align-items:center;gap:0.75rem;
+  text-decoration:none;flex-shrink:0;
+}
+.logo-svg{width:36px;height:36px;}
+.brand-text{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(1.15rem,3vw,1.45rem);
+  letter-spacing:0.12em;color:var(--white);
+}
+.brand-sub{
+  font-family:'Outfit',sans-serif;
+  font-size:0.55rem;letter-spacing:0.3em;
+  text-transform:uppercase;color:var(--muted);
+  display:block;line-height:1;margin-top:1px;
+}
+
+/* Desktop nav links */
+.nav-links{
+  display:flex;gap:2rem;list-style:none;
+  align-items:center;
+}
+.nav-links a{
+  font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--silver);text-decoration:none;font-weight:400;
+  transition:color 0.2s;position:relative;
+  white-space:nowrap;
+  padding:0.5rem 0;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-2px;left:0;
+  width:0;height:1px;
+  background:var(--em);transition:width 0.25s;
+}
+.nav-links a:hover{color:var(--em);}
+.nav-links a:hover::after{width:100%;}
+
+.nav-cta{
+  background:transparent;
+  border:1px solid var(--em);
+  color:var(--em);
+  padding:0.5rem 1.25rem;
+  font-family:'Outfit',sans-serif;
+  font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;
+  text-decoration:none;
+  transition:background 0.2s,color 0.2s;
+  clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,0 100%);
+  white-space:nowrap;
+  flex-shrink:0;
+}
+.nav-cta:hover{background:var(--em);color:var(--c0);}
+
+/* Hamburger */
+.hamburger{
+  display:none;
+  flex-direction:column;gap:5px;
+  background:none;border:none;
+  cursor:pointer;padding:8px;
+  z-index:901;
+  -webkit-tap-highlight-color:transparent;
+}
+.hamburger span{
+  display:block;width:22px;height:2px;
+  background:var(--white);
+  transition:transform 0.3s,opacity 0.3s;
+  border-radius:2px;
+}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* Mobile menu overlay */
+.mobile-menu{
+  display:none;
+  position:fixed;inset:0;z-index:800;
+  background:rgba(6,12,16,0.98);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:0;
+  padding:5rem 2rem 2rem;
+  overflow-y:auto;
+}
+.mobile-menu.open{display:flex;}
+.mobile-menu ul{
+  list-style:none;
+  text-align:center;
+  width:100%;
+  max-width:360px;
+}
+.mobile-menu ul li{
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+.mobile-menu ul li:first-child{border-top:1px solid rgba(255,255,255,0.05);}
+.mobile-menu ul a{
+  display:block;padding:1.25rem 0;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2.2rem;letter-spacing:0.08em;
+  color:var(--white);text-decoration:none;
+  transition:color 0.2s;
+}
+.mobile-menu ul a:hover{color:var(--em);}
+.mobile-menu-cta{
+  margin-top:2.5rem;
+  background:var(--em);color:var(--c0);
+  padding:1rem 2.5rem;
+  font-family:'Outfit',sans-serif;
+  font-size:0.8rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;
+  text-decoration:none;
+  display:inline-block;
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%);
+}
+
+/* ════════════════════════════
+   HERO
+════════════════════════════ */
+.hero{
+  min-height:100svh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  padding:clamp(5rem,12vw,8rem) clamp(1rem,4vw,3.5rem) clamp(3rem,6vw,4rem);
+  position:relative;overflow:hidden;
+  gap:2rem;
+}
+.hero-ambience{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 70% 90% at 70% 30%,rgba(46,204,106,0.07) 0%,transparent 65%),
+    radial-gradient(ellipse 50% 60% at 10% 70%,rgba(15,107,50,0.06) 0%,transparent 55%),
+    radial-gradient(ellipse 30% 40% at 90% 80%,rgba(0,255,179,0.04) 0%,transparent 50%);
+}
+.hero-geo{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.hero-left{position:relative;z-index:2;}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:0.75rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:clamp(0.58rem,1.5vw,0.65rem);
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--em);margin-bottom:1.5rem;
+  animation:fadeSlideUp 0.8s both;
+}
+.hero-kicker-dot{
+  width:6px;height:6px;background:var(--em);border-radius:50%;
+  animation:pulse 2s infinite;flex-shrink:0;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(0.7);}}
+
+.hero h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3.8rem,9vw,8.5rem);
+  line-height:0.92;letter-spacing:0.01em;
+  margin-bottom:1.75rem;
+  animation:fadeSlideUp 0.8s 0.1s both;
+}
+.hero h1 .line2{
+  display:block;
+  -webkit-text-stroke:1px rgba(46,204,106,0.5);
+  color:transparent;
+  font-size:clamp(3rem,7vw,7rem);
+}
+.hero h1 .line3{display:block;color:var(--em);}
+
+.hero-desc{
+  font-size:clamp(0.88rem,2vw,0.98rem);line-height:1.8;
+  color:var(--silver);max-width:440px;
+  margin-bottom:2.25rem;font-weight:300;
+  animation:fadeSlideUp 0.8s 0.2s both;
+}
+
+.hero-actions{
+  display:flex;gap:1rem;flex-wrap:wrap;
+  animation:fadeSlideUp 0.8s 0.3s both;
+}
+.btn-em{
+  background:var(--em);color:var(--c0);
+  padding:clamp(0.7rem,2vw,0.9rem) clamp(1.5rem,3vw,2.2rem);
+  font-family:'Outfit',sans-serif;
+  font-size:clamp(0.7rem,1.5vw,0.75rem);
+  letter-spacing:0.18em;text-transform:uppercase;font-weight:600;
+  text-decoration:none;
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%);
+  transition:background 0.2s,transform 0.15s;
+  white-space:nowrap;
+  display:inline-block;
+}
+.btn-em:hover{background:var(--em4);transform:translateY(-2px);}
+.btn-outline{
+  border:1px solid rgba(255,255,255,0.2);
+  color:var(--white);background:transparent;
+  padding:clamp(0.7rem,2vw,0.9rem) clamp(1.5rem,3vw,2.2rem);
+  font-family:'Outfit',sans-serif;
+  font-size:clamp(0.7rem,1.5vw,0.75rem);
+  letter-spacing:0.18em;text-transform:uppercase;font-weight:400;
+  text-decoration:none;
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%);
+  transition:border-color 0.2s,color 0.2s;
+  white-space:nowrap;
+  display:inline-block;
+}
+.btn-outline:hover{border-color:var(--em);color:var(--em);}
+
+/* Hero right emblem */
+.hero-right{
+  position:relative;z-index:2;
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-emblem{
+  width:min(400px,100%);
+  aspect-ratio:1;
+  position:relative;
+}
+.emblem-ring{
+  position:absolute;inset:0;
+  border:1px solid rgba(46,204,106,0.15);
+  border-radius:50%;
+  animation:spinSlow 20s linear infinite;
+}
+.emblem-ring:nth-child(2){
+  inset:10%;border-color:rgba(46,204,106,0.1);
+  animation:spinSlow 30s linear infinite reverse;
+}
+.emblem-ring:nth-child(3){
+  inset:20%;border:1px dashed rgba(46,204,106,0.08);
+  animation:spinSlow 15s linear infinite;
+}
+@keyframes spinSlow{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+.emblem-ticks{position:absolute;inset:0;animation:spinSlow 40s linear infinite reverse;}
+.emblem-core{
+  position:absolute;inset:20%;
+  background:rgba(10,21,32,0.9);
+  border:1px solid rgba(46,204,106,0.25);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 60px rgba(46,204,106,0.08),inset 0 0 40px rgba(46,204,106,0.03);
+}
+.emblem-m{width:60%;height:60%;}
+
+/* Hero scroll */
+.hero-scroll{
+  position:absolute;bottom:2rem;left:clamp(1rem,4vw,3.5rem);
+  display:flex;align-items:center;gap:1rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;z-index:2;
+}
+.scroll-line{width:40px;height:1px;background:linear-gradient(to right,var(--em),transparent);}
+
+/* ════════════════════════════
+   TICKER
+════════════════════════════ */
+.ticker{
+  background:var(--em3);
+  padding:0.65rem 0;overflow:hidden;
+  border-top:1px solid rgba(46,204,106,0.2);
+  border-bottom:1px solid rgba(46,204,106,0.2);
+}
+.ticker-track{
+  display:flex;gap:0;
+  animation:tickerMove 30s linear infinite;
+  white-space:nowrap;
+  will-change:transform;
+}
+@keyframes tickerMove{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.ticker-item{
+  display:inline-flex;align-items:center;gap:1.5rem;
+  padding:0 2rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:clamp(0.6rem,1.5vw,0.65rem);
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(6,12,16,0.9);font-weight:400;
+}
+.ticker-sep{color:rgba(6,12,16,0.4);font-size:0.5rem;}
+
+/* ════════════════════════════
+   SECTION BASE
+════════════════════════════ */
+.s{
+  padding:clamp(3.5rem,8vw,7rem) clamp(1rem,4vw,3.5rem);
+}
+.s-alt{background:var(--c1);}
+.s-dark{background:var(--c0);}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:0.75rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:clamp(0.58rem,1.5vw,0.62rem);
+  letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--em);margin-bottom:1.25rem;font-weight:300;
+}
+.eyebrow::before{content:'//';color:var(--em3);}
+
+.s-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2rem,5vw,5rem);
+  line-height:0.95;letter-spacing:0.02em;
+  margin-bottom:1.25rem;
+}
+.s-sub{
+  font-size:clamp(0.85rem,2vw,0.95rem);
+  line-height:1.8;color:var(--silver);
+  max-width:520px;font-weight:300;
+}
+
+/* ════════════════════════════
+   METRICS
+════════════════════════════ */
+.metrics{
+  background:var(--c0);
+  padding:clamp(3rem,6vw,5rem) clamp(1rem,4vw,3.5rem);
+  border-top:1px solid rgba(46,204,106,0.06);
+  border-bottom:1px solid rgba(46,204,106,0.06);
+}
+.metrics-inner{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  border:1px solid rgba(46,204,106,0.08);
+}
+.metric{
+  padding:clamp(1.5rem,3vw,2.5rem) clamp(1rem,2vw,2rem);
+  text-align:center;
+  border-right:1px solid rgba(46,204,106,0.06);
+  position:relative;overflow:hidden;
+}
+.metric:last-child{border-right:none;}
+.metric::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(to right,transparent,var(--em),transparent);
+  opacity:0;transition:opacity 0.3s;
+}
+.metric:hover::before{opacity:1;}
+.metric-n{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2rem,4vw,3.5rem);
+  color:var(--em);line-height:1;letter-spacing:0.04em;
+}
+.metric-l{
+  font-family:'JetBrains Mono',monospace;
+  font-size:clamp(0.52rem,1.2vw,0.58rem);
+  letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--muted);margin-top:0.4rem;
+}
+
+/* ════════════════════════════
+   SERVICES
+════════════════════════════ */
+.services-layout{
+  display:grid;
+  grid-template-columns:1fr 2fr;
+  gap:clamp(2rem,5vw,5rem);
+  align-items:start;
+}
+.services-intro .s-sub{margin-top:1rem;}
+
+.svc-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;
+  background:rgba(46,204,106,0.06);
+  border:1px solid rgba(46,204,106,0.08);
+}
+.svc-card{
+  background:var(--c1);
+  padding:clamp(1.25rem,3vw,2rem) clamp(1rem,2.5vw,1.75rem);
+  position:relative;overflow:hidden;
+  transition:background 0.3s;
+}
+.svc-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(to right,var(--em),transparent);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 0.3s;
+}
+.svc-card:hover{background:var(--c2);}
+.svc-card:hover::before{transform:scaleX(1);}
+
+.svc-num{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.58rem;color:var(--em3);
+  letter-spacing:0.2em;margin-bottom:0.75rem;
+}
+.svc-icon{
+  width:36px;height:36px;margin-bottom:0.75rem;
+  color:var(--em);opacity:0.8;
+}
+.svc-icon svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.4;}
+.svc-title{
+  font-family:'Outfit',sans-serif;
+  font-size:clamp(0.85rem,2vw,0.95rem);
+  font-weight:600;margin-bottom:0.5rem;letter-spacing:0.02em;
+}
+.svc-desc{
+  font-size:clamp(0.75rem,1.8vw,0.8rem);
+  color:var(--silver);line-height:1.65;font-weight:300;
+}
+
+.svc-card.feat{
+  grid-column:1/-1;
+  display:flex;align-items:center;
+  justify-content:space-between;gap:1.5rem;
+  background:linear-gradient(135deg,var(--c2),var(--c1));
+  flex-wrap:wrap;
+}
+.svc-card.feat .svc-title{font-size:clamp(1rem,2.5vw,1.2rem);}
+.feat-badge{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--em4);
+  border:1px solid rgba(62,255,126,0.25);
+  padding:0.35rem 0.75rem;white-space:nowrap;
+  flex-shrink:0;
+}
+
+/* ════════════════════════════
+   ABOUT
+════════════════════════════ */
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:clamp(2rem,5vw,6rem);align-items:center;
+}
+.about-card{
+  background:var(--c2);
+  border:1px solid rgba(46,204,106,0.1);
+  padding:clamp(1.5rem,3vw,2.5rem);
+  position:relative;overflow:hidden;
+}
+.about-card::after{
+  content:'';position:absolute;bottom:0;right:0;
+  width:120px;height:120px;
+  background:radial-gradient(circle,rgba(46,204,106,0.08) 0%,transparent 70%);
+}
+.about-geo-accent{
+  position:absolute;top:-1px;left:-1px;
+  width:40px;height:40px;
+  border-top:2px solid var(--em);
+  border-left:2px solid var(--em);
+}
+.about-geo-accent2{
+  position:absolute;bottom:-1px;right:-1px;
+  width:40px;height:40px;
+  border-bottom:2px solid var(--em3);
+  border-right:2px solid var(--em3);
+}
+.about-tag{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--em);margin-bottom:1.25rem;display:block;
+}
+.about-card h3{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(1.6rem,3.5vw,2.2rem);
+  line-height:1.05;letter-spacing:0.03em;margin-bottom:1rem;
+}
+.about-card p{font-size:clamp(0.8rem,1.8vw,0.85rem);color:var(--silver);line-height:1.75;font-weight:300;}
+
+.about-stats{
+  display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-top:1.75rem;
+}
+.astat{
+  background:var(--c0);
+  border:1px solid rgba(46,204,106,0.08);
+  padding:clamp(0.75rem,2vw,1.25rem);
+}
+.astat-n{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(1.6rem,3vw,2.2rem);
+  color:var(--em);letter-spacing:0.04em;line-height:1;
+}
+.astat-l{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--muted);margin-top:0.3rem;
+}
+
+.about-content .s-sub{margin-bottom:2rem;}
+.about-list{list-style:none;margin-top:1.5rem;}
+.about-list li{
+  display:flex;align-items:flex-start;gap:1rem;
+  padding:1rem 0;
+  border-bottom:1px solid rgba(255,255,255,0.04);
+  font-size:clamp(0.82rem,1.8vw,0.88rem);
+  color:var(--silver);line-height:1.65;font-weight:300;
+}
+.about-list li:last-child{border-bottom:none;}
+.about-list-num{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.6rem;color:var(--em);
+  flex-shrink:0;margin-top:0.3rem;
+}
+
+/* ════════════════════════════
+   INDUSTRIES
+════════════════════════════ */
+.industries-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:rgba(46,204,106,0.05);
+  border:1px solid rgba(46,204,106,0.07);
+  margin-top:3rem;
+}
+.ind{
+  background:var(--c1);
+  padding:clamp(1.25rem,3vw,2rem) clamp(1rem,2vw,1.5rem);
+  text-align:center;
+  transition:background 0.25s;
+}
+.ind:hover{background:var(--c2);}
+.ind-icon{
+  width:40px;height:40px;margin:0 auto 1rem;
+  color:var(--em);opacity:0.7;
+}
+.ind-icon svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.4;}
+.ind-title{font-size:clamp(0.82rem,2vw,0.85rem);font-weight:600;margin-bottom:0.35rem;}
+.ind-sub{font-size:clamp(0.68rem,1.5vw,0.72rem);color:var(--muted);line-height:1.5;}
+
+/* ════════════════════════════
+   WORK / PORTFOLIO
+════════════════════════════ */
+.work-header{
+  display:flex;
+  justify-content:space-between;align-items:flex-end;
+  gap:1.5rem;flex-wrap:wrap;
+  margin-bottom:clamp(2rem,4vw,3.5rem);
+}
+.work-link{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--em);text-decoration:none;
+  display:flex;align-items:center;gap:0.5rem;
+  white-space:nowrap;
+}
+.work-link::after{content:'→';transition:transform 0.2s;}
+.work-link:hover::after{transform:translateX(4px);}
+
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1rem,2vw,1.5rem);}
+.proj{
+  background:var(--c1);
+  border:1px solid rgba(255,255,255,0.05);
+  overflow:hidden;
+  transition:border-color 0.3s,transform 0.25s;
+}
+.proj:hover{border-color:rgba(46,204,106,0.25);transform:translateY(-3px);}
+.proj.big{
+  grid-column:1/-1;
+  display:grid;grid-template-columns:1fr 1fr;
+}
+.proj-thumb{
+  height:200px;position:relative;overflow:hidden;
+  background:var(--c2);
+  display:flex;align-items:center;justify-content:center;
+}
+.proj.big .proj-thumb{height:100%;min-height:240px;}
+.proj-thumb-label{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3.5rem,7vw,5rem);
+  letter-spacing:0.05em;color:rgba(46,204,106,0.07);
+  position:absolute;user-select:none;
+}
+.proj-thumb-icon{
+  width:56px;height:56px;
+  background:rgba(46,204,106,0.08);
+  border:1px solid rgba(46,204,106,0.15);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;z-index:1;
+}
+.proj-thumb-icon svg{width:24px;height:24px;stroke:var(--em);fill:none;stroke-width:1.4;}
+.proj-body{padding:clamp(1.25rem,2.5vw,1.75rem);}
+.proj.big .proj-body{padding:clamp(1.5rem,3vw,2.5rem);}
+.proj-type{
+  font-family:'JetBrains Mono',monospace;
+  font-size:clamp(0.58rem,1.2vw,0.62rem);
+  letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--em);margin-bottom:0.6rem;
+}
+.proj-title{
+  font-family:'Outfit',sans-serif;
+  font-size:clamp(0.95rem,2vw,1.1rem);
+  font-weight:600;margin-bottom:0.75rem;line-height:1.35;
+}
+.proj-desc{
+  font-size:clamp(0.78rem,1.8vw,0.84rem);
+  color:var(--silver);line-height:1.7;font-weight:300;margin-bottom:1.25rem;
+}
+.proj-tags{display:flex;flex-wrap:wrap;gap:0.4rem;}
+.ptag{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--muted);
+  border:1px solid rgba(255,255,255,0.07);
+  padding:0.2rem 0.55rem;
+}
+
+/* ════════════════════════════
+   PROCESS
+════════════════════════════ */
+.process-track{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  position:relative;margin-top:3rem;
+}
+.process-track::before{
+  content:'';position:absolute;
+  top:27px;left:5%;right:5%;height:1px;
+  background:linear-gradient(to right,transparent,var(--em3),var(--em3),transparent);
+}
+.pstep{text-align:center;padding:0 0.5rem;}
+.pstep-num{
+  width:54px;height:54px;
+  border:1px solid rgba(46,204,106,0.3);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 1.25rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.75rem;color:var(--em);
+  background:var(--c1);
+  position:relative;z-index:1;
+  transition:background 0.2s,border-color 0.2s;
+}
+.pstep:hover .pstep-num{background:rgba(46,204,106,0.1);border-color:var(--em);}
+.pstep-title{
+  font-size:clamp(0.82rem,2vw,0.9rem);font-weight:600;margin-bottom:0.5rem;
+}
+.pstep-desc{font-size:clamp(0.72rem,1.6vw,0.76rem);color:var(--silver);line-height:1.6;font-weight:300;}
+
+/* ════════════════════════════
+   CONTACT
+════════════════════════════ */
+.contact-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:clamp(2rem,5vw,6rem);align-items:start;
+}
+.cdetail{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.5rem;}
+.cdetail-icon{
+  width:38px;height:38px;flex-shrink:0;
+  border:1px solid rgba(46,204,106,0.15);
+  display:flex;align-items:center;justify-content:center;
+}
+.cdetail-icon svg{width:16px;height:16px;stroke:var(--em);fill:none;stroke-width:1.5;}
+.cdetail-text{font-size:clamp(0.82rem,1.8vw,0.85rem);color:var(--silver);line-height:1.5;}
+.cdetail-text strong{
+  display:block;
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:0.2rem;font-weight:300;
+}
+.contact-form{
+  background:var(--c1);
+  border:1px solid rgba(46,204,106,0.08);
+  padding:clamp(1.5rem,3vw,2.5rem);position:relative;
+}
+.contact-form::before{
+  content:'';position:absolute;top:0;left:0;
+  width:50px;height:50px;
+  border-top:2px solid var(--em);border-left:2px solid var(--em);
+}
+.frow{margin-bottom:1.25rem;}
+.flabel{
+  display:block;
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:0.5rem;
+}
+.finput,.farea,.fselect{
+  width:100%;background:var(--c0);
+  border:1px solid rgba(255,255,255,0.06);
+  padding:0.8rem 1rem;
+  color:var(--white);font-family:'Outfit',sans-serif;
+  font-size:clamp(0.82rem,2vw,0.9rem);
+  outline:none;transition:border-color 0.2s;
+  -webkit-appearance:none;appearance:none;
+  border-radius:0;
+}
+.finput:focus,.farea:focus,.fselect:focus{border-color:rgba(46,204,106,0.35);}
+.farea{min-height:110px;resize:vertical;line-height:1.6;}
+.fselect{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234A6B80' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;}
+.fselect option{background:var(--c0);}
+.fsubmit{
+  width:100%;background:var(--em);color:var(--c0);
+  border:none;
+  padding:clamp(0.8rem,2vw,0.9rem) 2rem;
+  font-family:'Outfit',sans-serif;
+  font-size:clamp(0.72rem,1.5vw,0.75rem);
+  letter-spacing:0.18em;text-transform:uppercase;font-weight:600;
+  cursor:pointer;
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%);
+  transition:background 0.2s;
+  margin-top:0.5rem;
+  -webkit-tap-highlight-color:transparent;
+}
+.fsubmit:hover{background:var(--em4);}
+
+/* ════════════════════════════
+   FOOTER
+════════════════════════════ */
+footer{
+  background:var(--c0);
+  border-top:1px solid rgba(46,204,106,0.07);
+  padding:clamp(3rem,6vw,4rem) clamp(1rem,4vw,3.5rem) clamp(1.5rem,3vw,2.5rem);
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:2.5fr 1fr 1fr 1fr;
+  gap:clamp(2rem,4vw,4rem);
+  margin-bottom:clamp(2rem,4vw,3.5rem);
+}
+.footer-brand p{
+  font-size:clamp(0.78rem,1.8vw,0.82rem);
+  color:var(--muted);line-height:1.75;
+  margin-top:1.25rem;max-width:280px;font-weight:300;
+}
+.fcol-title{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--em3);margin-bottom:1.25rem;font-weight:300;
+}
+.fcol ul{list-style:none;}
+.fcol li{margin-bottom:0.65rem;}
+.fcol a{
+  font-size:clamp(0.78rem,1.8vw,0.82rem);
+  color:var(--muted);text-decoration:none;font-weight:300;
+  transition:color 0.15s;
+}
+.fcol a:hover{color:var(--em);}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1rem;
+  padding-top:2rem;
+  border-top:1px solid rgba(255,255,255,0.04);
+}
+.footer-copy{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.6rem;letter-spacing:0.15em;color:var(--muted);
+}
+.footer-tagline{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.1rem;letter-spacing:0.2em;color:var(--em);opacity:0.7;
+}
+
+/* ════════════════════════════
+   ANIMATIONS
+════════════════════════════ */
+@keyframes fadeSlideUp{
+  from{opacity:0;transform:translateY(30px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* Scroll-reveal */
+.reveal{
+  opacity:0;transform:translateY(24px);
+  transition:opacity 0.65s ease,transform 0.65s ease;
+}
+.reveal.visible{opacity:1;transform:none;}
+
+/* ════════════════════════════
+   RESPONSIVE — TABLET 1024px
+════════════════════════════ */
+@media(max-width:1100px){
+  .nav-links{gap:1.5rem;}
+  .services-layout{grid-template-columns:1fr;}
+  .about-grid{grid-template-columns:1fr;}
+  .industries-grid{grid-template-columns:repeat(2,1fr);}
+  .metrics-inner{grid-template-columns:repeat(3,1fr);}
+  .metric{border-right:1px solid rgba(46,204,106,0.06);}
+  .metric:nth-child(3){border-right:none;}
+  .metric:nth-child(4){border-right:1px solid rgba(46,204,106,0.06);}
+  .metric:last-child{border-right:none;}
+  .metric{border-bottom:1px solid rgba(46,204,106,0.06);}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:2.5rem;}
+}
+
+@media(max-width:960px){
+  /* Show hamburger, hide desktop links */
+  .hamburger{display:flex;}
+  .nav-links{display:none !important;}
+  .nav-cta{display:none;}
+
+  /* Hero stack */
+  .hero{
+    grid-template-columns:1fr;
+    padding-top:clamp(5.5rem,14vw,8rem);
+  }
+  .hero-right{display:none;}
+  .hero-scroll{display:none;}
+
+  /* Projects */
+  .projects{grid-template-columns:1fr;}
+  .proj.big{grid-column:1;grid-template-columns:1fr;}
+  .proj.big .proj-thumb{min-height:200px;height:200px;}
+
+  /* Process */
+  .process-track{
+    grid-template-columns:1fr 1fr;
+    gap:2rem;
+  }
+  .process-track::before{display:none;}
+
+  /* Contact */
+  .contact-grid{grid-template-columns:1fr;}
+
+  /* Work header */
+  .work-header{flex-direction:column;align-items:flex-start;}
+}
+
+/* ════════════════════════════
+   RESPONSIVE — MOBILE 600px
+════════════════════════════ */
+@media(max-width:600px){
+  /* Metrics 2 col */
+  .metrics-inner{grid-template-columns:1fr 1fr;}
+  .metric{
+    border-right:1px solid rgba(46,204,106,0.06) !important;
+    border-bottom:1px solid rgba(46,204,106,0.06);
+  }
+  .metric:nth-child(2n){border-right:none !important;}
+
+  /* Industries 2 col */
+  .industries-grid{grid-template-columns:1fr 1fr;}
+
+  /* Services 1 col */
+  .svc-grid{grid-template-columns:1fr;}
+  .svc-card.feat{flex-direction:column;align-items:flex-start;}
+
+  /* About stats 2 col already, keep */
+
+  /* Process single col */
+  .process-track{grid-template-columns:1fr;}
+
+  /* Footer single col */
+  .footer-grid{grid-template-columns:1fr;}
+  .footer-brand p{max-width:100%;}
+
+  /* Hero buttons stack */
+  .hero-actions{flex-direction:column;align-items:flex-start;}
+  .btn-em,.btn-outline{width:100%;text-align:center;}
+
+  /* About grid */
+  .about-grid{gap:2rem;}
+
+  /* Footer bottom stack */
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:0.75rem;}
+}
+
+/* ════════════════════════════
+   RESPONSIVE — SMALL MOBILE 380px
+════════════════════════════ */
+@media(max-width:380px){
+  .industries-grid{grid-template-columns:1fr;}
+  .metrics-inner{grid-template-columns:1fr;}
+  .metric{border-right:none !important;}
+  .about-stats{grid-template-columns:1fr 1fr;}
+}
+
+/* Touch targets — ensure minimum 44×44px */
+@media(hover:none){
+  .fsubmit,
+  .btn-em,
+  .btn-outline,
+  .nav-cta,
+  .mobile-menu-cta{
+    min-height:48px;
+    display:inline-flex;align-items:center;justify-content:center;
+  }
+  .hamburger{
+    min-width:44px;min-height:44px;
+    display:flex;align-items:center;justify-content:center;
+  }
+}
+
+/* Print safe */
+@media print{
+  nav,.hamburger,.mobile-menu,.ticker,.hero-geo,.hero-ambience,
+  .cursor,.cursor-ring,body::before{display:none!important;}
+  body{background:#fff;color:#000;}
+  .s{padding:2rem 1rem;}
+}
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="curRing"></div>
+
+<!-- ═══════════════════════════
+     NAV
+═══════════════════════════ -->
+<nav role="navigation" aria-label="Main navigation">
+  <a href="#" class="nav-logo" aria-label="Mvule Technologies — Home">
+    <svg class="logo-svg" viewBox="0 0 38 38" fill="none" aria-hidden="true">
+      <rect width="38" height="38" rx="5" fill="#0A1520"/>
+      <defs>
+        <linearGradient id="mg1" x1="5" y1="8" x2="33" y2="30" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#3EFF7E"/><stop offset="0.5" stop-color="#2ECC6A"/><stop offset="1" stop-color="#1DB954"/>
+        </linearGradient>
+        <linearGradient id="mg2" x1="11" y1="25" x2="27" y2="15" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#2ECC6A"/><stop offset="1" stop-color="#0F6B32"/>
+        </linearGradient>
+      </defs>
+      <path d="M5 29V9L12 20L19 9L26 20L33 9V29" stroke="url(#mg1)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M12 26L19 15L26 26" stroke="url(#mg2)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div>
+      <span class="brand-text">MVULE</span>
+      <span class="brand-sub">Technologies</span>
+    </div>
+  </a>
+
+  <ul class="nav-links" role="list">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <a href="#contact" class="nav-cta">Start a Project</a>
+
+  <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+  <ul role="list">
+    <li><a href="#services" class="mobile-nav-link">Services</a></li>
+    <li><a href="#about" class="mobile-nav-link">About</a></li>
+    <li><a href="#work" class="mobile-nav-link">Work</a></li>
+    <li><a href="#process" class="mobile-nav-link">Process</a></li>
+    <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+  </ul>
+  <a href="#contact" class="mobile-menu-cta mobile-nav-link">Start a Project →</a>
+</div>
+
+<!-- ═══════════════════════════
+     HERO
+═══════════════════════════ -->
+<main id="main-content">
+<section class="hero" aria-label="Hero">
+  <div class="hero-ambience" aria-hidden="true"></div>
+  <div class="hero-geo" aria-hidden="true">
+    <svg width="100%" height="100%" style="position:absolute;inset:0;opacity:0.04;">
+      <defs>
+        <pattern id="hexGrid" x="0" y="0" width="60" height="52" patternUnits="userSpaceOnUse">
+          <polygon points="30,2 58,17 58,47 30,62 2,47 2,17" fill="none" stroke="#2ECC6A" stroke-width="0.5"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#hexGrid)"/>
+    </svg>
+  </div>
+
+  <div class="hero-left">
+    <div class="hero-kicker">
+      <span class="hero-kicker-dot" aria-hidden="true"></span>
+      African Technology · Est. Kenya · mvule.tech
+    </div>
+    <h1>
+      Rooted<span class="line2">in</span><span class="line3">Innovation</span>
+    </h1>
+    <p class="hero-desc">Premium software solutions, ICT consultancy, and digital transformation engineered for the pace of modern African enterprise.</p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-em">Explore Solutions</a>
+      <a href="#work" class="btn-outline">View Portfolio</a>
+    </div>
+  </div>
+
+  <div class="hero-right" aria-hidden="true">
+    <div class="hero-emblem">
+      <div class="emblem-ring"></div>
+      <div class="emblem-ring"></div>
+      <div class="emblem-ring"></div>
+      <svg class="emblem-ticks" viewBox="0 0 420 420" style="position:absolute;inset:0;width:100%;height:100%;">
+        <g transform="translate(210,210)">
+          <line x1="190" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.3)" stroke-width="1" transform="rotate(0)"/>
+          <line x1="190" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.3)" stroke-width="1" transform="rotate(15)"/>
+          <line x1="190" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.3)" stroke-width="1" transform="rotate(30)"/>
+          <line x1="190" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.3)" stroke-width="1" transform="rotate(45)"/>
+          <line x1="190" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.3)" stroke-width="1" transform="rotate(60)"/>
+          <line x1="190" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.3)" stroke-width="1" transform="rotate(75)"/>
+          <line x1="190" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.3)" stroke-width="1" transform="rotate(90)"/>
+          <line x1="190" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.3)" stroke-width="1" transform="rotate(105)"/>
+          <line x1="190" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.3)" stroke-width="1" transform="rotate(120)"/>
+          <line x1="190" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.3)" stroke-width="1" transform="rotate(135)"/>
+          <line x1="190" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.3)" stroke-width="1" transform="rotate(150)"/>
+          <line x1="190" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.3)" stroke-width="1" transform="rotate(165)"/>
+          <line x1="190" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.3)" stroke-width="1" transform="rotate(180)"/>
+          <line x1="190" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.3)" stroke-width="1" transform="rotate(195)"/>
+          <line x1="190" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.3)" stroke-width="1" transform="rotate(210)"/>
+          <line x1="190" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.3)" stroke-width="1" transform="rotate(225)"/>
+          <line x1="190" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.3)" stroke-width="1" transform="rotate(240)"/>
+          <line x1="190" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.3)" stroke-width="1" transform="rotate(255)"/>
+          <line x1="190" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.3)" stroke-width="1" transform="rotate(270)"/>
+          <line x1="190" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.3)" stroke-width="1" transform="rotate(285)"/>
+          <line x1="190" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.3)" stroke-width="1" transform="rotate(300)"/>
+          <line x1="190" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.3)" stroke-width="1" transform="rotate(315)"/>
+          <line x1="190" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.3)" stroke-width="1" transform="rotate(330)"/>
+          <line x1="190" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.3)" stroke-width="1" transform="rotate(345)"/>
+          <line x1="184" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.6)" stroke-width="1.5"/>
+          <line x1="184" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.6)" stroke-width="1.5" transform="rotate(90)"/>
+          <line x1="184" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.6)" stroke-width="1.5" transform="rotate(180)"/>
+          <line x1="184" y1="0" x2="198" y2="0" stroke="rgba(46,204,106,0.6)" stroke-width="1.5" transform="rotate(270)"/>
+        </g>
+      </svg>
+      <div class="emblem-core">
+        <svg class="emblem-m" viewBox="0 0 100 100" fill="none">
+          <defs>
+            <linearGradient id="emG" x1="10" y1="20" x2="90" y2="80" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#3EFF7E"/><stop offset="0.5" stop-color="#2ECC6A"/><stop offset="1" stop-color="#0F6B32"/>
+            </linearGradient>
+            <linearGradient id="emG2" x1="20" y1="70" x2="80" y2="40" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#2ECC6A"/><stop offset="1" stop-color="#1A7A40"/>
+            </linearGradient>
+          </defs>
+          <path d="M10 80V20L32 55L50 22L68 55L90 20V80" stroke="url(#emG)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M32 72L50 38L68 72" stroke="url(#emG2)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <a href="#services" class="hero-scroll" aria-label="Scroll to explore">
+    <span class="scroll-line" aria-hidden="true"></span>
+    Scroll to explore
+  </a>
+</section>
+
+<!-- ═══════════════════════════
+     TICKER
+═══════════════════════════ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-item">Software Development <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">POS Systems <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">Mobile Apps <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">Website Development <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">Tech Consultancy <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">ICT Support <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">Networking &amp; CCTV <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">GIS &amp; Mapping <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">Digital Transformation <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">Cloud Solutions <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">Software Development <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">POS Systems <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">Mobile Apps <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">Website Development <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">Tech Consultancy <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">ICT Support <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">Networking &amp; CCTV <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">GIS &amp; Mapping <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">Digital Transformation <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">Cloud Solutions <span class="ticker-sep">◆</span></span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════
+     METRICS
+═══════════════════════════ -->
+<div class="metrics reveal" role="region" aria-label="Company metrics">
+  <div class="metrics-inner">
+    <div class="metric">
+      <div class="metric-n">50+</div>
+      <div class="metric-l">Projects Delivered</div>
+    </div>
+    <div class="metric">
+      <div class="metric-n">8+</div>
+      <div class="metric-l">Years Experience</div>
+    </div>
+    <div class="metric">
+      <div class="metric-n">30+</div>
+      <div class="metric-l">Enterprise Clients</div>
+    </div>
+    <div class="metric">
+      <div class="metric-n">5</div>
+      <div class="metric-l">African Markets</div>
+    </div>
+    <div class="metric">
+      <div class="metric-n">99%</div>
+      <div class="metric-l">Client Retention</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════
+     SERVICES
+═══════════════════════════ -->
+<section class="s s-alt reveal" id="services" aria-labelledby="services-heading">
+  <div class="services-layout">
+    <div class="services-intro">
+      <div class="eyebrow">What We Build</div>
+      <h2 class="s-title" id="services-heading">Full-Spectrum<br>Digital Capability</h2>
+      <p class="s-sub">From custom enterprise software to physical ICT infrastructure — we engineer, deploy, and sustain the technology that powers African business growth.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card feat">
+        <div>
+          <div class="svc-num">01</div>
+          <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M17.5 14v7M14 17.5h7"/></svg></div>
+          <div class="svc-title">Custom Software Development</div>
+          <div class="svc-desc">Bespoke web platforms, ERPs, CRMs, and business automation systems built on modern stacks — designed to scale from startup to enterprise.</div>
+        </div>
+        <span class="feat-badge">Core Service</span>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">02</div>
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+        <div class="svc-title">POS Systems</div>
+        <div class="svc-desc">End-to-end point-of-sale solutions for retail, hospitality, and service businesses — integrated with M-PESA, card payments, and inventory.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">03</div>
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
+        <div class="svc-title">Mobile App Development</div>
+        <div class="svc-desc">iOS and Android applications optimised for African connectivity realities — lightweight, offline-capable, and intuitive.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">04</div>
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <div class="svc-title">Website Development</div>
+        <div class="svc-desc">Corporate websites, e-commerce platforms, and web applications — performance-engineered for speed on African networks.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">05</div>
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg></div>
+        <div class="svc-title">Tech Consultancy</div>
+        <div class="svc-desc">Strategic ICT advisory — from technology audits and architecture design to digital roadmaps for C-suite leadership.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">06</div>
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg></div>
+        <div class="svc-title">ICT Support</div>
+        <div class="svc-desc">Managed IT support, helpdesk services, hardware procurement, and preventive maintenance — keeping your operations running.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">07</div>
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="2" y="14" width="8" height="8" rx="1"/><rect x="14" y="14" width="8" height="8" rx="1"/><path d="M10 6h4M6 10v4M18 10v4M10 18h4"/></svg></div>
+        <div class="svc-title">Networking &amp; CCTV</div>
+        <div class="svc-desc">Enterprise LAN/WAN design, structured cabling, WiFi 6, VPN, and intelligent CCTV surveillance systems for campuses and offices.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">08</div>
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <div class="svc-title">GIS &amp; Mapping Solutions</div>
+        <div class="svc-desc">Geospatial data platforms, interactive mapping, asset tracking, and location intelligence for logistics, agriculture, and government.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">09</div>
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12l2-2 2 2 4-8 4 8 2-2 2 2"/><path d="M3 20h18"/></svg></div>
+        <div class="svc-title">Digital Transformation</div>
+        <div class="svc-desc">End-to-end transformation programmes that migrate legacy operations into scalable digital ecosystems — people, processes, and platforms.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">10</div>
+        <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4.03 3-9 3S3 13.66 3 12"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/></svg></div>
+        <div class="svc-title">Cloud Solutions</div>
+        <div class="svc-desc">Cloud migration, hybrid architecture, managed hosting, and SaaS platform development on AWS and Azure — built for African resilience.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════
+     ABOUT
+═══════════════════════════ -->
+<section class="s s-dark reveal" id="about" aria-labelledby="about-heading">
+  <div class="about-grid">
+    <div class="about-visual">
+      <div class="about-card">
+        <div class="about-geo-accent" aria-hidden="true"></div>
+        <div class="about-geo-accent2" aria-hidden="true"></div>
+        <span class="about-tag">// The Mvule Story</span>
+        <h3>Named after<br>Africa's most<br>resilient tree.</h3>
+        <p style="margin-top:1rem;">The Mvule — Milicia excelsa — is one of East Africa's hardest, most durable hardwoods. Found across Uganda, Kenya, and Tanzania, it grows slowly, withstands the harshest conditions, and lasts for generations. That's the standard we hold our technology to.</p>
+        <div class="about-stats">
+          <div class="astat"><div class="astat-n">EST</div><div class="astat-l">Kenya</div></div>
+          <div class="astat"><div class="astat-n">5+</div><div class="astat-l">Markets Served</div></div>
+          <div class="astat"><div class="astat-n">100%</div><div class="astat-l">African-Built</div></div>
+          <div class="astat"><div class="astat-n">24/7</div><div class="astat-l">Support SLA</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="eyebrow">About Mvule</div>
+      <h2 class="s-title" id="about-heading">Built for<br>African Business</h2>
+      <p class="s-sub">We understand what it means to build technology for African conditions — the infrastructure gaps, the payment ecosystems, the regulatory landscape, and the extraordinary pace of digital adoption.</p>
+      <ul class="about-list" role="list">
+        <li>
+          <span class="about-list-num" aria-hidden="true">→</span>
+          Deep contextual expertise in African regulatory and connectivity environments, from M-PESA integration to county government systems.
+        </li>
+        <li>
+          <span class="about-list-num" aria-hidden="true">→</span>
+          Multidisciplinary in-house teams: software engineers, network specialists, GIS analysts, and digital strategists — all under one roof.
+        </li>
+        <li>
+          <span class="about-list-num" aria-hidden="true">→</span>
+          Long-term partnership model. We stay engaged post-delivery with SLA-backed support and continuous improvement cycles.
+        </li>
+        <li>
+          <span class="about-list-num" aria-hidden="true">→</span>
+          Agile, founder-led culture that moves at the speed your business demands — without enterprise bureaucracy.
+        </li>
+        <li>
+          <span class="about-list-num" aria-hidden="true">→</span>
+          Rooted in the continent, connected to the world. Global technology standards adapted to local realities.
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════
+     INDUSTRIES
+═══════════════════════════ -->
+<section class="s s-alt reveal" aria-labelledby="industries-heading">
+  <div class="eyebrow">Industries We Serve</div>
+  <h2 class="s-title" id="industries-heading">Across Every<br>Critical Sector</h2>
+  <div class="industries-grid">
+    <div class="ind"><div class="ind-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21V11h6v10"/></svg></div><div class="ind-title">Government</div><div class="ind-sub">e-Government platforms, revenue systems, land registries</div></div>
+    <div class="ind"><div class="ind-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="ind-title">Financial Services</div><div class="ind-sub">Banking platforms, Saccos, insurance, microfinance</div></div>
+    <div class="ind"><div class="ind-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="ind-title">Healthcare</div><div class="ind-sub">Hospital management, telemedicine, patient records</div></div>
+    <div class="ind"><div class="ind-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div><div class="ind-title">Retail &amp; FMCG</div><div class="ind-sub">POS, inventory, e-commerce, supply chain</div></div>
+    <div class="ind"><div class="ind-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-2 14.5v-9l6 4.5z"/></svg></div><div class="ind-title">Education</div><div class="ind-sub">LMS platforms, campus networks, student portals</div></div>
+    <div class="ind"><div class="ind-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div class="ind-title">Telecoms &amp; ISPs</div><div class="ind-sub">Network management, billing, customer portals</div></div>
+    <div class="ind"><div class="ind-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div class="ind-title">Agriculture &amp; NGOs</div><div class="ind-sub">GIS mapping, field data collection, M&amp;E platforms</div></div>
+    <div class="ind"><div class="ind-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div class="ind-title">Logistics &amp; Transport</div><div class="ind-sub">Fleet tracking, route optimisation, delivery platforms</div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════
+     WORK
+═══════════════════════════ -->
+<section class="s s-dark reveal" id="work" aria-labelledby="work-heading">
+  <div class="work-header">
+    <div>
+      <div class="eyebrow">Portfolio</div>
+      <h2 class="s-title" id="work-heading">Selected Work</h2>
+    </div>
+    <a href="#contact" class="work-link">Discuss Your Project</a>
+  </div>
+
+  <div class="projects">
+    <div class="proj big">
+      <div class="proj-thumb">
+        <div class="proj-thumb-label" aria-hidden="true">ERP</div>
+        <div class="proj-thumb-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3h18v4H3zM3 10h18v4H3zM3 17h18v4H3z"/></svg></div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-type">Enterprise Software · Nairobi, Kenya</div>
+        <h3 class="proj-title">Integrated ERP — Regional FMCG Distributor</h3>
+        <p class="proj-desc">End-to-end supply chain and inventory management platform for a distributor operating across 4 counties, processing 3,000+ daily transactions. Built on Node.js + PostgreSQL with a React dashboard and offline-capable mobile companion app.</p>
+        <div class="proj-tags">
+          <span class="ptag">React</span><span class="ptag">Node.js</span><span class="ptag">PostgreSQL</span><span class="ptag">React Native</span><span class="ptag">M-PESA</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-thumb">
+        <div class="proj-thumb-label" aria-hidden="true">POS</div>
+        <div class="proj-thumb-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-type">POS &amp; Payments · Mombasa, Kenya</div>
+        <h3 class="proj-title">Multi-Branch POS — Restaurant Chain</h3>
+        <p class="proj-desc">Centralised POS across 12 outlets integrating M-PESA, Visa/Mastercard, kitchen display, and real-time inventory. Reduced transaction time by 40%.</p>
+        <div class="proj-tags">
+          <span class="ptag">Python</span><span class="ptag">M-PESA</span><span class="ptag">React</span><span class="ptag">POS Hardware</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-thumb">
+        <div class="proj-thumb-label" aria-hidden="true">GIS</div>
+        <div class="proj-thumb-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-type">GIS &amp; Mapping · County Government</div>
+        <h3 class="proj-title">Land &amp; Asset Registry Platform</h3>
+        <p class="proj-desc">Geospatial land parcel management system for a county government — digitising 120,000+ records with interactive map layers and mobile field collection.</p>
+        <div class="proj-tags">
+          <span class="ptag">PostGIS</span><span class="ptag">Leaflet.js</span><span class="ptag">Django</span><span class="ptag">QGIS</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-thumb">
+        <div class="proj-thumb-label" aria-hidden="true">NET</div>
+        <div class="proj-thumb-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="2" y="14" width="8" height="8" rx="1"/><rect x="14" y="14" width="8" height="8" rx="1"/><path d="M10 6h4M6 10v4M18 10v4M10 18h4"/></svg></div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-type">Network Infrastructure · University Campus</div>
+        <h3 class="proj-title">Campus Network Redesign &amp; CCTV</h3>
+        <p class="proj-desc">Full structured cabling, WiFi 6 deployment, core switching, and 200-camera CCTV rollout across a 3-campus institution. 94% downtime reduction in 90 days.</p>
+        <div class="proj-tags">
+          <span class="ptag">Cisco</span><span class="ptag">WiFi 6</span><span class="ptag">SD-WAN</span><span class="ptag">IP CCTV</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════
+     PROCESS
+═══════════════════════════ -->
+<section class="s s-alt reveal" id="process" aria-labelledby="process-heading">
+  <div class="eyebrow">How We Work</div>
+  <h2 class="s-title" id="process-heading">Our Delivery Process</h2>
+  <p class="s-sub">A structured, collaborative approach refined across dozens of complex technology engagements in East Africa and beyond.</p>
+  <div class="process-track">
+    <div class="pstep">
+      <div class="pstep-num" aria-hidden="true">01</div>
+      <div class="pstep-title">Discovery</div>
+      <p class="pstep-desc">Deep stakeholder interviews, technical audits, and requirements mapping to understand the real problem — not just the surface request.</p>
+    </div>
+    <div class="pstep">
+      <div class="pstep-num" aria-hidden="true">02</div>
+      <div class="pstep-title">Architecture</div>
+      <p class="pstep-desc">System design, technology selection, and phased delivery planning that balances ambition with realistic local constraints.</p>
+    </div>
+    <div class="pstep">
+      <div class="pstep-num" aria-hidden="true">03</div>
+      <div class="pstep-title">Build</div>
+      <p class="pstep-desc">Agile development with fortnightly demos. You see working progress from week two — no black-box delivery cycles.</p>
+    </div>
+    <div class="pstep">
+      <div class="pstep-num" aria-hidden="true">04</div>
+      <div class="pstep-title">Deploy</div>
+      <p class="pstep-desc">Rigorous QA, user acceptance testing, phased rollout, and staff training before full go-live.</p>
+    </div>
+    <div class="pstep">
+      <div class="pstep-num" aria-hidden="true">05</div>
+      <div class="pstep-title">Support</div>
+      <p class="pstep-desc">SLA-backed post-launch monitoring, helpdesk support, and continuous improvement — because delivery is just the beginning.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════
+     CONTACT
+═══════════════════════════ -->
+<section class="s s-dark reveal" id="contact" aria-labelledby="contact-heading">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="eyebrow">Get in Touch</div>
+      <h2 class="s-title" id="contact-heading">Let's Build<br>Something Lasting</h2>
+      <p class="s-sub">Whether you have a defined brief or an early-stage challenge, we would love to hear about it. Our team responds within one business day.</p>
+      <div style="margin-top:2.5rem;">
+        <div class="cdetail">
+          <div class="cdetail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div class="cdetail-text"><strong>Email</strong><a href="mailto:hello@mvule.tech" style="color:var(--silver);text-decoration:none;">hello@mvule.tech</a></div>
+        </div>
+        <div class="cdetail">
+          <div class="cdetail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="cdetail-text"><strong>Location</strong>Nairobi, Kenya — Serving East Africa &amp; beyond</div>
+        </div>
+        <div class="cdetail">
+          <div class="cdetail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/></svg></div>
+          <div class="cdetail-text"><strong>Web</strong><a href="https://www.mvule.tech" style="color:var(--silver);text-decoration:none;">www.mvule.tech</a></div>
+        </div>
+        <div class="cdetail">
+          <div class="cdetail-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="cdetail-text"><strong>Response Time</strong>Within one business day — guaranteed</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form" role="form" aria-label="Project enquiry form">
+      <div class="frow">
+        <label class="flabel" for="fname">Full Name</label>
+        <input type="text" id="fname" class="finput" placeholder="Jane Mwangi" autocomplete="name">
+      </div>
+      <div class="frow">
+        <label class="flabel" for="femail">Email Address</label>
+        <input type="email" id="femail" class="finput" placeholder="jane@company.co.ke" autocomplete="email">
+      </div>
+      <div class="frow">
+        <label class="flabel" for="fcompany">Company / Organisation</label>
+        <input type="text" id="fcompany" class="finput" placeholder="Acme Kenya Ltd" autocomplete="organization">
+      </div>
+      <div class="frow">
+        <label class="flabel" for="fservice">Service of Interest</label>
+        <select id="fservice" class="fselect finput">
+          <option value="">Select a service…</option>
+          <option>Custom Software Development</option>
+          <option>POS System</option>
+          <option>Mobile App Development</option>
+          <option>Website Development</option>
+          <option>Tech Consultancy</option>
+          <option>ICT Support</option>
+          <option>Networking &amp; CCTV</option>
+          <option>GIS &amp; Mapping Solutions</option>
+          <option>Digital Transformation</option>
+          <option>Cloud Solutions</option>
+          <option>Not Sure — Let's Talk</option>
+        </select>
+      </div>
+      <div class="frow">
+        <label class="flabel" for="fbrief">Project Brief</label>
+        <textarea id="fbrief" class="farea" placeholder="Tell us what you are looking to build or solve…"></textarea>
+      </div>
+      <button class="fsubmit" type="button">Send Enquiry →</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ═══════════════════════════
+     FOOTER
+═══════════════════════════ -->
+<footer role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo" aria-label="Mvule Technologies">
+        <svg width="34" height="34" viewBox="0 0 38 38" fill="none" aria-hidden="true">
+          <rect width="38" height="38" rx="5" fill="#0A1520"/>
+          <defs>
+            <linearGradient id="fmg1" x1="5" y1="8" x2="33" y2="30" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#3EFF7E"/><stop offset="1" stop-color="#1DB954"/>
+            </linearGradient>
+            <linearGradient id="fmg2" x1="11" y1="25" x2="27" y2="15" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#2ECC6A"/><stop offset="1" stop-color="#0F6B32"/>
+            </linearGradient>
+          </defs>
+          <path d="M5 29V9L12 20L19 9L26 20L33 9V29" stroke="url(#fmg1)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 26L19 15L26 26" stroke="url(#fmg2)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div><span class="brand-text">MVULE</span><span class="brand-sub">Technologies</span></div>
+      </a>
+      <p>Premium software, ICT consultancy, and digital transformation for modern African enterprise. Rooted in innovation — built to last.</p>
+    </div>
+    <div class="fcol">
+      <div class="fcol-title">Services</div>
+      <ul role="list">
+        <li><a href="#services">Software Development</a></li>
+        <li><a href="#services">POS Systems</a></li>
+        <li><a href="#services">Mobile Apps</a></li>
+        <li><a href="#services">Websites</a></li>
+        <li><a href="#services">GIS &amp; Mapping</a></li>
+        <li><a href="#services">Networking &amp; CCTV</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <div class="fcol-title">Company</div>
+      <ul role="list">
+        <li><a href="#about">About Mvule</a></li>
+        <li><a href="#work">Portfolio</a></li>
+        <li><a href="#process">Our Process</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <div class="fcol-title">Connect</div>
+      <ul role="list">
+        <li><a href="mailto:hello@mvule.tech">hello@mvule.tech</a></li>
+        <li><a href="https://www.mvule.tech">www.mvule.tech</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Twitter / X</a></li>
+        <li><a href="#">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Mvule Technologies Ltd. All rights reserved.</span>
+    <span class="footer-tagline">Rooted in Innovation</span>
+  </div>
+</footer>
+
+<script>
+// ─── Custom cursor (pointer devices only) ───────────────────────────────
+(function(){
+  const isPointer = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+  if(!isPointer) return;
+  const cur = document.getElementById('cur');
+  const ring = document.getElementById('curRing');
+  if(!cur||!ring) return;
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{
+    mx=e.clientX; my=e.clientY;
+    cur.style.left=(mx-4)+'px';
+    cur.style.top=(my-4)+'px';
+  },{passive:true});
+  function animRing(){
+    rx+=(mx-rx-16)*0.12;
+    ry+=(my-ry-16)*0.12;
+    ring.style.left=rx+'px';
+    ring.style.top=ry+'px';
+    requestAnimationFrame(animRing);
+  }
+  animRing();
+  document.querySelectorAll('a,button,.svc-card,.proj,.pstep,.ind').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{
+      ring.style.width='48px';ring.style.height='48px';
+      ring.style.borderColor='rgba(46,204,106,0.7)';
+    });
+    el.addEventListener('mouseleave',()=>{
+      ring.style.width='32px';ring.style.height='32px';
+      ring.style.borderColor='rgba(46,204,106,0.4)';
+    });
+  });
+})();
+
+// ─── Hamburger / mobile menu ─────────────────────────────────────────────
+(function(){
+  const btn = document.getElementById('hamburgerBtn');
+  const menu = document.getElementById('mobileMenu');
+  const links = menu ? menu.querySelectorAll('.mobile-nav-link') : [];
+  let open = false;
+
+  function toggle(state){
+    open = state;
+    btn.classList.toggle('open', open);
+    menu.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
+  btn.addEventListener('click', ()=> toggle(!open));
+  links.forEach(l => l.addEventListener('click', ()=> toggle(false)));
+
+  // Close on Escape
+  document.addEventListener('keydown', e=>{
+    if(e.key==='Escape' && open) toggle(false);
+  });
+})();
+
+// ─── Scroll-reveal ────────────────────────────────────────────────────────
+(function(){
+  const els = document.querySelectorAll('.reveal');
+  if(!els.length) return;
+  const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(el => observer.observe(el));
+})();
+
+// ─── Ticker pause on hover (reduces motion) ──────────────────────────────
+(function(){
+  const ticker = document.querySelector('.ticker-track');
+  if(!ticker) return;
+  const parent = ticker.closest('.ticker');
+  parent.addEventListener('mouseenter',()=>{ticker.style.animationPlayState='paused';});
+  parent.addEventListener('mouseleave',()=>{ticker.style.animationPlayState='running';});
+})();
+
+// ─── Responsive nav shrink on scroll ─────────────────────────────────────
+(function(){
+  const nav = document.querySelector('nav');
+  let last = 0;
+  window.addEventListener('scroll',()=>{
+    const y = window.scrollY;
+    if(y > 60){
+      nav.style.padding = '0.65rem clamp(1rem,4vw,3.5rem)';
+    } else {
+      nav.style.padding = '1rem clamp(1rem,4vw,3.5rem)';
+    }
+    last = y;
+  },{passive:true});
+})();
+</script>
+</body>
+</html>
