@@ -332,6 +332,127 @@ body.nav-open{overflow:hidden}
   nav{padding-left:calc(1rem + env(safe-area-inset-left));padding-right:calc(1rem + env(safe-area-inset-right))}
   .nav-overlay{padding-left:calc(2rem + env(safe-area-inset-left));padding-right:calc(2rem + env(safe-area-inset-right))}
 }
+
+/* ═══════════════════════════════════════
+   MVULE SUITE SHOWCASE
+   ═══════════════════════════════════════ */
+.suite-showcase{background:linear-gradient(180deg,#FFFFFF 0%,#F8FAFC 100%);padding:7rem 2rem 6rem;position:relative;overflow:hidden;}
+.suite-bg-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.35;}
+
+/* Header */
+.suite-header{text-align:center;margin-bottom:4rem;position:relative;z-index:1;}
+
+.suite-eyebrow{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:"Poppins",sans-serif;font-size:15px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;margin-bottom:16px;
+  background:linear-gradient(90deg,#1E4ED8,#49A5FF);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.suite-dot{width:6px;height:6px;border-radius:50%;background:#1E4ED8;display:inline-block;flex-shrink:0;-webkit-text-fill-color:unset;animation:sdot 2s ease-in-out infinite;}
+@keyframes sdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(1.8)}}
+
+.suite-title{
+  font-family:"Poppins",sans-serif;font-weight:700;line-height:1.1;
+  color:#031A4D;margin-bottom:24px;
+  font-size:clamp(32px,6vw,64px);
+}
+.suite-accent{color:#031A4D;}
+
+.suite-sub{
+  font-family:"Inter",sans-serif;font-weight:400;
+  font-size:clamp(16px,2.2vw,20px);line-height:1.7;
+  color:#64748B;max-width:720px;margin:0 auto;
+}
+
+/* Filter tabs */
+.suite-filters{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-bottom:2.5rem;position:relative;z-index:1;}
+.sft{background:#F1F5F9;border:1px solid #E2E8F0;color:#475569;font-size:.78rem;font-weight:600;padding:.45rem 1.1rem;border-radius:100px;cursor:pointer;transition:all .2s;font-family:"Inter",sans-serif;}
+.sft:hover{background:#EFF6FF;border-color:#BFDBFE;color:#1E4ED8;}
+.sft.active{background:#1E4ED8;border-color:#1E4ED8;color:#fff;}
+
+/* Responsive typography */
+@media(max-width:1023px){
+  .suite-title{font-size:clamp(32px,5vw,52px);}
+  .suite-sub{font-size:18px;}
+  .suite-eyebrow{font-size:14px;}
+}
+
+/* Grid */
+.suite-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;position:relative;z-index:1;}
+
+/* Card */
+.spc{background:#0B1E48;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:1.25rem;display:flex;flex-direction:column;gap:.875rem;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease;}
+.spc.hidden{display:none;}
+.spc.spc-in{animation:spcIn .32s ease forwards;}
+@keyframes spcIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.spc:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.2);box-shadow:0 20px 48px rgba(0,0,0,.4);}
+
+/* Card header */
+.spc-head{display:flex;align-items:center;gap:.75rem;}
+.spc-icon{width:36px;height:36px;flex-shrink:0;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:10px;display:flex;align-items:center;justify-content:center;padding:7px;}
+.spc-icon svg{width:20px;height:20px;}
+.spc-name{font-family:"Poppins",sans-serif;font-weight:700;font-size:.95rem;color:#FFFFFF;margin:0;}
+.spc-badge{display:inline-block;font-size:.58rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:.2rem .55rem;border-radius:100px;margin-top:3px;}
+.spc-badge.education{background:rgba(99,102,241,.25);color:#c7d2fe;}
+.spc-badge.utilities{background:rgba(14,165,233,.25);color:#bae6fd;}
+.spc-badge.finance{background:rgba(168,85,247,.25);color:#e9d5ff;}
+.spc-badge.agriculture{background:rgba(34,197,94,.25);color:#bbf7d0;}
+.spc-badge.retail{background:rgba(249,115,22,.25);color:#fed7aa;}
+.spc-badge.healthcare{background:rgba(236,72,153,.25);color:#fbcfe8;}
+.spc-badge.property{background:rgba(139,92,246,.25);color:#ddd6fe;}
+.spc-badge.faith{background:rgba(234,179,8,.25);color:#fef08a;}
+.spc-badge.fintech{background:rgba(6,182,212,.25);color:#a5f3fc;}
+
+/* Dashboard */
+.spc-dash{position:relative;border-radius:10px;overflow:hidden;cursor:pointer;background:#060F24;border:1px solid rgba(255,255,255,.07);flex:1;}
+.spc-svg{width:100%;height:auto;display:block;transition:transform .35s ease;}
+.spc-overlay{position:absolute;inset:0;background:rgba(3,15,40,.78);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .22s;}
+.spc-overlay span{background:#1E4ED8;color:#fff;font-size:.78rem;font-weight:600;padding:.5rem 1.25rem;border-radius:8px;font-family:"Inter",sans-serif;}
+.spc:hover .spc-overlay{opacity:1;}
+.spc:hover .spc-svg{transform:scale(1.04);}
+
+/* Description */
+.spc-desc{font-size:.82rem;color:#CBD5E1;line-height:1.6;margin:0;}
+
+/* CTA button */
+.spc-cta{background:#1E4ED8;color:#fff;border:none;padding:.65rem 1rem;border-radius:9px;font-size:.82rem;font-weight:600;cursor:pointer;width:100%;font-family:"Inter",sans-serif;transition:background .2s;}
+.spc-cta:hover{background:#2D73E5;}
+
+/* Bottom CTA */
+.suite-cta{margin-top:3.5rem;background:#0B1E48;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:3rem 2.5rem;text-align:center;position:relative;z-index:1;}
+.suite-cta-title{font-family:"Poppins",sans-serif;font-weight:800;font-size:clamp(1.4rem,3vw,2.1rem);color:#fff;margin-bottom:.875rem;}
+.suite-cta-sub{font-size:1rem;color:#CBD5E1;max-width:500px;margin:0 auto 2rem;}
+.suite-cta-btn{background:#1E4ED8;color:#fff;border:none;padding:1rem 2.5rem;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;font-family:"Inter",sans-serif;transition:background .2s;display:inline-flex;align-items:center;}
+.suite-cta-btn:hover{background:#2D73E5;}
+
+/* Modal */
+.spc-modal{position:fixed;inset:0;z-index:9000;background:rgba(2,8,24,.88);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .28s;}
+.spc-modal.open{opacity:1;pointer-events:all;}
+.spc-modal-box{background:#0B1E3F;border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:2rem;max-width:720px;width:90vw;max-height:88vh;overflow-y:auto;position:relative;transform:scale(.93);transition:transform .28s;}
+.spc-modal.open .spc-modal-box{transform:scale(1);}
+.spc-modal-x{position:absolute;top:1rem;right:1.25rem;background:rgba(255,255,255,.08);border:none;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;}
+.spc-modal-x:hover{background:rgba(255,255,255,.18);}
+#spcModalBody h2{font-family:"Poppins",sans-serif;font-weight:800;font-size:1.4rem;color:#fff;margin-bottom:.4rem;}
+#spcModalBody p.mdesc{color:#CBD5E1;font-size:.9rem;line-height:1.7;margin-bottom:1.25rem;}
+#spcModalBody h4{color:#49A5FF;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:.65rem;font-family:"Poppins",sans-serif;}
+.mfeats{display:grid;grid-template-columns:1fr 1fr;gap:.4rem .75rem;list-style:none;margin-bottom:1.75rem;}
+.mfeats li{color:#CBD5E1;font-size:.82rem;display:flex;align-items:center;gap:.5rem;}
+.mfeats li::before{content:"";width:6px;height:6px;border-radius:50%;background:#49A5FF;flex-shrink:0;}
+.mcta{background:#1E4ED8;color:#fff;border:none;padding:.9rem 2rem;border-radius:10px;font-size:.95rem;font-weight:700;cursor:pointer;width:100%;font-family:"Inter",sans-serif;}
+.mcta:hover{background:#2D73E5;}
+
+/* Responsive */
+@media(max-width:1199px){.suite-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:900px){.suite-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){
+  .suite-showcase{padding:3.5rem 1rem;}
+  .suite-grid{display:flex;overflow-x:auto;gap:1rem;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:.5rem;}
+  .suite-grid::-webkit-scrollbar{display:none;}
+  .spc{min-width:280px;scroll-snap-align:start;flex-shrink:0;}
+  .sft{font-size:.7rem;padding:.38rem .8rem;}
+  .suite-cta{padding:2rem 1.25rem;}
+}
 </style>
 </head>
 <body>
@@ -399,148 +520,151 @@ body.nav-open{overflow:hidden}
 </section>
 
 <!-- PRODUCTS -->
-<section id="products">
+<section id="products" class="suite-showcase">
+  <canvas id="suiteBgCanvas" class="suite-bg-canvas"></canvas>
   <div class="container">
-    <div class="section-header reveal">
-      <p class="section-eyebrow">The Mvule Suite</p>
-      <h2 class="section-title">Purpose-Built for African Enterprise</h2>
-      <p class="section-sub">Vertical-specific software engineered for institutions, cooperatives, and service providers across the continent.</p>
+
+    <div class="suite-header reveal">
+      <p class="suite-eyebrow"><span class="suite-dot"></span>THE MVULE SUITE</p>
+      <h2 class="suite-title">Purpose-Built for <span class="suite-accent">African Enterprise</span></h2>
+      <p class="suite-sub">Vertical-specific software engineered for institutions, cooperatives, and service providers across the continent.</p>
     </div>
-    <div class="products-grid">
 
-      <div class="product-card reveal">
-        <div class="product-icon"><span class="material-symbols-outlined">school</span></div>
-        <span class="product-badge">Education</span>
-        <div class="product-name">ShuleHub</div>
-        <div class="product-sub">School ERP</div>
-        <p class="product-desc">Complete school management for primary, secondary, colleges &amp; universities — from CBC compliance to parent engagement.</p>
-        <ul class="product-features"><li>Fee Management &amp; M-Pesa</li><li>CBC Exams &amp; Reports</li><li>Parent Portal &amp; SMS</li></ul>
-        <button class="btn-demo" onclick="scrollToContact()"><span class="material-symbols-outlined">send</span>Request Demo</button>
-      </div>
-
-      <div class="product-card reveal reveal-delay-1">
-        <div class="product-icon"><span class="material-symbols-outlined">water_drop</span></div>
-        <span class="product-badge">Utilities</span>
-        <div class="product-name">AquaLedger</div>
-        <div class="product-sub">Water Billing ERP</div>
-        <p class="product-desc">Smart billing platform for water service providers — from meter reading to revenue collection and reporting.</p>
-        <ul class="product-features"><li>Meter Readings</li><li>Consumer Billing</li><li>Revenue Analytics</li></ul>
-        <button class="btn-demo" onclick="scrollToContact()"><span class="material-symbols-outlined">send</span>Request Demo</button>
-      </div>
-
-      <div class="product-card reveal reveal-delay-2">
-        <div class="product-icon"><span class="material-symbols-outlined">savings</span></div>
-        <span class="product-badge">Finance</span>
-        <div class="product-name">NuruCapital</div>
-        <div class="product-sub">SACCO / MFI ERP</div>
-        <p class="product-desc">Digital platform for SACCOs and microfinance institutions to manage members, loans, and financial reporting.</p>
-        <ul class="product-features"><li>Member Management</li><li>Loan Processing</li><li>Regulatory Reports</li></ul>
-        <button class="btn-demo" onclick="scrollToContact()"><span class="material-symbols-outlined">send</span>Request Demo</button>
-      </div>
-
-      <div class="product-card reveal">
-        <div class="product-icon"><span class="material-symbols-outlined">apartment</span></div>
-        <span class="product-badge">Property</span>
-        <div class="product-name">KodiSphere</div>
-        <div class="product-sub">Property ERP</div>
-        <p class="product-desc">End-to-end property and estate management — lease tracking, rent collection, maintenance, and tenant portals.</p>
-        <ul class="product-features"><li>Lease Management</li><li>Rent Collection</li><li>Maintenance Tracking</li></ul>
-        <button class="btn-demo" onclick="scrollToContact()"><span class="material-symbols-outlined">send</span>Request Demo</button>
-      </div>
-
-      <div class="product-card reveal reveal-delay-1">
-        <div class="product-icon"><span class="material-symbols-outlined">local_drink</span></div>
-        <span class="product-badge">Agriculture</span>
-        <div class="product-name">MaziwaSync</div>
-        <div class="product-sub">Dairy ERP</div>
-        <p class="product-desc">Digital operations platform for dairy cooperatives — milk intake, farmer payments, and quality control.</p>
-        <ul class="product-features"><li>Milk Intake Records</li><li>Farmer Payments</li><li>Quality Management</li></ul>
-        <button class="btn-demo" onclick="scrollToContact()"><span class="material-symbols-outlined">send</span>Request Demo</button>
-      </div>
-
-      <div class="product-card reveal reveal-delay-2">
-        <div class="product-icon"><span class="material-symbols-outlined">coffee</span></div>
-        <span class="product-badge">Agriculture</span>
-        <div class="product-name">KahawaLink</div>
-        <div class="product-sub">Coffee ERP</div>
-        <p class="product-desc">End-to-end coffee factory and cooperative management — from cherry intake to milling and export documentation.</p>
-        <ul class="product-features"><li>Cherry Intake</li><li>Milling &amp; Processing</li><li>Export Docs</li></ul>
-        <button class="btn-demo" onclick="scrollToContact()"><span class="material-symbols-outlined">send</span>Request Demo</button>
-      </div>
-
-      <div class="product-card reveal">
-        <div class="product-icon"><span class="material-symbols-outlined">agriculture</span></div>
-        <span class="product-badge">Agriculture</span>
-        <div class="product-name">AgroPilot</div>
-        <div class="product-sub">Farm ERP</div>
-        <p class="product-desc">Agricultural management and productivity suite — input tracking, crop records, and farmer advisory tools.</p>
-        <ul class="product-features"><li>Crop Records</li><li>Input Management</li><li>Market Pricing</li></ul>
-        <button class="btn-demo" onclick="scrollToContact()"><span class="material-symbols-outlined">send</span>Request Demo</button>
-      </div>
-
-      <div class="product-card reveal reveal-delay-1">
-        <div class="product-icon"><span class="material-symbols-outlined">point_of_sale</span></div>
-        <span class="product-badge">Retail</span>
-        <div class="product-name">TillPoint</div>
-        <div class="product-sub">Retail POS</div>
-        <p class="product-desc">Modern retail and inventory platform with real-time stock tracking, multi-branch support, and KRA compliance.</p>
-        <ul class="product-features"><li>Inventory Management</li><li>KRA ETR Integration</li><li>Multi-Branch</li></ul>
-        <button class="btn-demo" onclick="scrollToContact()"><span class="material-symbols-outlined">send</span>Request Demo</button>
-      </div>
-
-      <div class="product-card reveal reveal-delay-2">
-        <div class="product-icon"><span class="material-symbols-outlined">medication</span></div>
-        <span class="product-badge">Healthcare</span>
-        <div class="product-name">AfyaRx</div>
-        <div class="product-sub">Pharmacy ERP</div>
-        <p class="product-desc">Pharmacy and healthcare operations management — stock control, dispensing records, and supplier management.</p>
-        <ul class="product-features"><li>Drug Inventory</li><li>Dispensing Records</li><li>Supplier Management</li></ul>
-        <button class="btn-demo" onclick="scrollToContact()"><span class="material-symbols-outlined">send</span>Request Demo</button>
-      </div>
-
-      <div class="product-card reveal">
-        <div class="product-icon"><span class="material-symbols-outlined">groups</span></div>
-        <span class="product-badge">Finance</span>
-        <div class="product-name">UmojaFunds</div>
-        <div class="product-sub">Chama ERP</div>
-        <p class="product-desc">Digital management platform for investment groups and chamas — contributions, minutes, dividends, and member records.</p>
-        <ul class="product-features"><li>Contributions Tracking</li><li>Meeting Minutes</li><li>Dividend Processing</li></ul>
-        <button class="btn-demo" onclick="scrollToContact()"><span class="material-symbols-outlined">send</span>Request Demo</button>
-      </div>
-
-      <div class="product-card reveal reveal-delay-1">
-        <div class="product-icon"><span class="material-symbols-outlined">spa</span></div>
-        <span class="product-badge">Lifestyle</span>
-        <div class="product-name">GlowDesk</div>
-        <div class="product-sub">Salon ERP</div>
-        <p class="product-desc">Business management platform for salons and spas — appointments, staff schedules, inventory, and loyalty.</p>
-        <ul class="product-features"><li>Appointment Booking</li><li>Staff Management</li><li>Loyalty Programme</li></ul>
-        <button class="btn-demo" onclick="scrollToContact()"><span class="material-symbols-outlined">send</span>Request Demo</button>
-      </div>
-
-      <div class="product-card reveal reveal-delay-2">
-        <div class="product-icon"><span class="material-symbols-outlined">church</span></div>
-        <span class="product-badge">Faith</span>
-        <div class="product-name">BarakaCMS</div>
-        <div class="product-sub">Church CMS</div>
-        <p class="product-desc">Church administration and member engagement — attendance, tithe tracking, cell groups, and communications.</p>
-        <ul class="product-features"><li>Member Management</li><li>Tithe &amp; Offerings</li><li>Cell Group Tracking</li></ul>
-        <button class="btn-demo" onclick="scrollToContact()"><span class="material-symbols-outlined">send</span>Request Demo</button>
-      </div>
-
-      <div class="product-card reveal">
-        <div class="product-icon"><span class="material-symbols-outlined">receipt_long</span></div>
-        <span class="product-badge">FinTech</span>
-        <div class="product-name">PayMatch</div>
-        <div class="product-sub">Paybill Reconciliation</div>
-        <p class="product-desc">Automated M-PESA Paybill reconciliation and transaction matching — eliminate manual errors, save hours daily.</p>
-        <ul class="product-features"><li>Auto Reconciliation</li><li>Transaction Matching</li><li>Exception Reports</li></ul>
-        <button class="btn-demo" onclick="scrollToContact()"><span class="material-symbols-outlined">send</span>Request Demo</button>
-      </div>
-
+    <div class="suite-filters reveal" id="suiteFilters">
+      <button class="sft active" data-filter="all">All Products</button>
+      <button class="sft" data-filter="education">Education</button>
+      <button class="sft" data-filter="finance">Finance</button>
+      <button class="sft" data-filter="utilities">Utilities</button>
+      <button class="sft" data-filter="agriculture">Agriculture</button>
+      <button class="sft" data-filter="retail">Retail</button>
+      <button class="sft" data-filter="healthcare">Healthcare</button>
+      <button class="sft" data-filter="property">Property</button>
+      <button class="sft" data-filter="faith">Faith &amp; Community</button>
+      <button class="sft" data-filter="fintech">Reconciliation</button>
     </div>
+
+    <div class="suite-grid" id="suiteGrid">
+
+      <!-- ShuleHub -->
+      <div class="spc" data-cat="education">
+        <div class="spc-head"><div class="spc-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3L1 9l11 6 11-6-11-6z" stroke="#49A5FF" stroke-width="1.8" stroke-linejoin="round"/><path d="M1 9v6M4 10.5v5.5a8 8 0 0016 0v-5.5" stroke="#49A5FF" stroke-width="1.8" stroke-linecap="round"/></svg></div><div><p class="spc-name">ShuleHub</p><span class="spc-badge education">Education</span></div></div>
+        <div class="spc-dash" onclick="openModal('shulehub')">
+          <svg viewBox="0 0 380 220" xmlns="http://www.w3.org/2000/svg" class="spc-svg"><rect width="380" height="220" fill="#0B1E3F" rx="8"/><rect width="380" height="28" fill="#0D2552" rx="8"/><rect y="20" width="380" height="8" fill="#0D2552"/><circle cx="12" cy="14" r="4" fill="#1E4ED8"/><text x="22" y="18" fill="#76C6FF" font-size="7" font-family="Inter,sans-serif" font-weight="600">ShuleHub School ERP</text><text x="298" y="18" fill="#49A5FF" font-size="6" font-family="Inter,sans-serif">Acacian Primary</text><rect x="8" y="34" width="82" height="44" fill="#0F2D5A" rx="6"/><text x="16" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Total Students</text><text x="16" y="63" fill="#FFFFFF" font-size="16" font-family="Inter,sans-serif" font-weight="700">1,247</text><rect x="96" y="34" width="82" height="44" fill="#0F2D5A" rx="6"/><text x="104" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Fees Collected</text><text x="104" y="63" fill="#2ECC71" font-size="14" font-family="Inter,sans-serif" font-weight="700">KES 2.4M</text><rect x="184" y="34" width="82" height="44" fill="#0F2D5A" rx="6"/><text x="192" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Attendance</text><text x="192" y="63" fill="#49A5FF" font-size="16" font-family="Inter,sans-serif" font-weight="700">94.2%</text><rect x="272" y="34" width="100" height="44" fill="#0F2D5A" rx="6"/><text x="280" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Avg Exam Score</text><text x="280" y="63" fill="#76C6FF" font-size="16" font-family="Inter,sans-serif" font-weight="700">72.8%</text><rect x="8" y="86" width="174" height="80" fill="#0F2D5A" rx="6"/><text x="16" y="98" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Monthly Fee Collection</text><rect x="16" y="130" width="16" height="28" fill="#1E4ED8" rx="2"/><rect x="36" y="120" width="16" height="38" fill="#1E4ED8" rx="2"/><rect x="56" y="110" width="16" height="48" fill="#49A5FF" rx="2"/><rect x="76" y="125" width="16" height="33" fill="#1E4ED8" rx="2"/><rect x="96" y="108" width="16" height="50" fill="#49A5FF" rx="2"/><rect x="116" y="103" width="16" height="55" fill="#76C6FF" rx="2"/><rect x="136" y="115" width="16" height="43" fill="#1E4ED8" rx="2"/><text x="16" y="166" fill="#64748B" font-size="5" font-family="Inter,sans-serif">Jan  Feb  Mar  Apr  May  Jun  Jul</text><rect x="190" y="86" width="90" height="80" fill="#0F2D5A" rx="6"/><text x="198" y="98" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Attendance</text><circle cx="235" cy="136" r="22" fill="none" stroke="#1E3A6E" stroke-width="8"/><circle cx="235" cy="136" r="22" fill="none" stroke="#49A5FF" stroke-width="8" stroke-dasharray="130 32" stroke-dashoffset="28" transform="rotate(-90 235 136)"/><text x="228" y="139" fill="#FFFFFF" font-size="9" font-family="Inter,sans-serif" font-weight="700">94%</text><rect x="286" y="86" width="86" height="80" fill="#0F2D5A" rx="6"/><text x="294" y="98" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Top Classes</text><text x="294" y="112" fill="#76C6FF" font-size="5.5" font-family="Inter,sans-serif">Grade 7A — 98%</text><text x="294" y="124" fill="#76C6FF" font-size="5.5" font-family="Inter,sans-serif">Grade 8B — 96%</text><text x="294" y="136" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Grade 6A — 95%</text><text x="294" y="148" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Grade 5C — 91%</text><rect x="8" y="172" width="364" height="40" fill="#0F2D5A" rx="6"/><text x="16" y="184" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Recent Fee Payments</text><text x="16" y="198" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">James Mwangi · KES 12,500 · Grade 7 ·</text><text x="136" y="198" fill="#2ECC71" font-size="5.5" font-family="Inter,sans-serif"> ✓ Paid</text><text x="180" y="198" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Alice Otieno · KES 8,000 · Grade 3 ·</text><text x="292" y="198" fill="#F59E0B" font-size="5.5" font-family="Inter,sans-serif"> Partial</text><text x="16" y="208" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Peter Kamau · KES 15,000 · Grade 8 ·</text><text x="130" y="208" fill="#2ECC71" font-size="5.5" font-family="Inter,sans-serif"> ✓ Paid</text></svg>
+          <div class="spc-overlay"><span>View Preview</span></div>
+        </div>
+        <p class="spc-desc">Complete school management from admissions to alumni — CBC compliant, M-Pesa integrated.</p>
+        <button class="spc-cta" onclick="scrollToContact()">Request Demo</button>
+      </div>
+
+      <!-- AquaLedger -->
+      <div class="spc" data-cat="utilities">
+        <div class="spc-head"><div class="spc-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.5 7 4 11 4 14a8 8 0 0016 0c0-3-2.5-7-8-12z" stroke="#49A5FF" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div><p class="spc-name">AquaLedger</p><span class="spc-badge utilities">Utilities</span></div></div>
+        <div class="spc-dash" onclick="openModal('aqualedger')">
+          <svg viewBox="0 0 380 220" xmlns="http://www.w3.org/2000/svg" class="spc-svg"><rect width="380" height="220" fill="#0B1E3F" rx="8"/><rect width="380" height="28" fill="#0D2552" rx="8"/><rect y="20" width="380" height="8" fill="#0D2552"/><circle cx="12" cy="14" r="4" fill="#0EA5E9"/><text x="22" y="18" fill="#76C6FF" font-size="7" font-family="Inter,sans-serif" font-weight="600">AquaLedger Water Billing</text><rect x="8" y="34" width="82" height="44" fill="#0F2D5A" rx="6"/><text x="16" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Active Consumers</text><text x="16" y="63" fill="#FFFFFF" font-size="16" font-family="Inter,sans-serif" font-weight="700">8,432</text><rect x="96" y="34" width="82" height="44" fill="#0F2D5A" rx="6"/><text x="104" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Revenue This Month</text><text x="104" y="63" fill="#2ECC71" font-size="13" font-family="Inter,sans-serif" font-weight="700">KES 4.1M</text><rect x="184" y="34" width="82" height="44" fill="#0F2D5A" rx="6"/><text x="192" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Readings Pending</text><text x="192" y="63" fill="#F59E0B" font-size="16" font-family="Inter,sans-serif" font-weight="700">124</text><rect x="272" y="34" width="100" height="44" fill="#0F2D5A" rx="6"/><text x="280" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Collection Rate</text><text x="280" y="63" fill="#49A5FF" font-size="16" font-family="Inter,sans-serif" font-weight="700">87.4%</text><rect x="8" y="86" width="184" height="80" fill="#0F2D5A" rx="6"/><text x="16" y="98" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Monthly Revenue Trend</text><polyline points="16,158 44,148 72,152 100,138 128,130 156,122 184,118" fill="none" stroke="#49A5FF" stroke-width="2" stroke-linecap="round"/><path d="M16,158 L44,148 L72,152 L100,138 L128,130 L156,122 L184,118 L184,168 L16,168 Z" fill="rgba(73,165,255,0.1)"/><text x="16" y="168" fill="#64748B" font-size="5" font-family="Inter,sans-serif">Jan · Feb · Mar · Apr · May · Jun · Jul</text><rect x="198" y="86" width="90" height="80" fill="#0F2D5A" rx="6"/><text x="206" y="98" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Coverage Zones</text><rect x="208" y="104" width="22" height="12" fill="#1E4ED8" rx="2"/><text x="234" y="113" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Zone A 98%</text><rect x="208" y="118" width="22" height="12" fill="#49A5FF" rx="2"/><text x="234" y="127" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Zone B 91%</text><rect x="208" y="132" width="22" height="12" fill="#76C6FF" rx="2"/><text x="234" y="141" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Zone C 78%</text><rect x="208" y="146" width="22" height="12" fill="#F59E0B" rx="2"/><text x="234" y="155" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Zone D 65%</text><rect x="294" y="86" width="78" height="80" fill="#0F2D5A" rx="6"/><text x="302" y="98" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Recent Bills</text><text x="302" y="112" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Acc-0041 KES 820</text><text x="302" y="124" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Acc-0042 KES 1,240</text><text x="302" y="136" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Acc-0043 KES 560</text><text x="302" y="148" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Acc-0044 KES 2,100</text><rect x="8" y="172" width="364" height="40" fill="#0F2D5A" rx="6"/><text x="16" y="184" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Meter Reading Queue</text><text x="16" y="197" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Route 04 · 34 meters · Due today · Reader: John Mwenda</text><text x="16" y="208" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Route 07 · 28 meters · Due tomorrow · Reader: Grace Wanjiku</text></svg>
+          <div class="spc-overlay"><span>View Preview</span></div>
+        </div>
+        <p class="spc-desc">Smart metering, billing and revenue management for water service providers.</p>
+        <button class="spc-cta" onclick="scrollToContact()">Request Demo</button>
+      </div>
+
+      <!-- NuruCapital -->
+      <div class="spc" data-cat="finance">
+        <div class="spc-head"><div class="spc-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="6" width="20" height="14" rx="2" stroke="#49A5FF" stroke-width="1.8"/><path d="M2 10h20" stroke="#49A5FF" stroke-width="1.8"/></svg></div><div><p class="spc-name">NuruCapital</p><span class="spc-badge finance">Finance</span></div></div>
+        <div class="spc-dash" onclick="openModal('nurucapital')">
+          <svg viewBox="0 0 380 220" xmlns="http://www.w3.org/2000/svg" class="spc-svg"><rect width="380" height="220" fill="#0B1E3F" rx="8"/><rect width="380" height="28" fill="#0D2552" rx="8"/><rect y="20" width="380" height="8" fill="#0D2552"/><circle cx="12" cy="14" r="4" fill="#6366F1"/><text x="22" y="18" fill="#76C6FF" font-size="7" font-family="Inter,sans-serif" font-weight="600">NuruCapital SACCO Management</text><rect x="8" y="34" width="82" height="44" fill="#0F2D5A" rx="6"/><text x="16" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Total Members</text><text x="16" y="63" fill="#FFFFFF" font-size="16" font-family="Inter,sans-serif" font-weight="700">3,891</text><rect x="96" y="34" width="82" height="44" fill="#0F2D5A" rx="6"/><text x="104" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Loan Book</text><text x="104" y="63" fill="#2ECC71" font-size="13" font-family="Inter,sans-serif" font-weight="700">KES 28.4M</text><rect x="184" y="34" width="82" height="44" fill="#0F2D5A" rx="6"/><text x="192" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Total Savings</text><text x="192" y="63" fill="#49A5FF" font-size="13" font-family="Inter,sans-serif" font-weight="700">KES 41.2M</text><rect x="272" y="34" width="100" height="44" fill="#0F2D5A" rx="6"/><text x="280" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">NPL Ratio</text><text x="280" y="63" fill="#F59E0B" font-size="16" font-family="Inter,sans-serif" font-weight="700">2.3%</text><rect x="8" y="86" width="130" height="80" fill="#0F2D5A" rx="6"/><text x="16" y="98" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Loan Portfolio</text><circle cx="73" cy="138" r="28" fill="none" stroke="#1E3A6E" stroke-width="14"/><circle cx="73" cy="138" r="28" fill="none" stroke="#1E4ED8" stroke-width="14" stroke-dasharray="70 106" stroke-dashoffset="28" transform="rotate(-90 73 138)"/><circle cx="73" cy="138" r="28" fill="none" stroke="#49A5FF" stroke-width="14" stroke-dasharray="38 138" stroke-dashoffset="-42" transform="rotate(-90 73 138)"/><circle cx="73" cy="138" r="28" fill="none" stroke="#76C6FF" stroke-width="14" stroke-dasharray="22 154" stroke-dashoffset="-80" transform="rotate(-90 73 138)"/><text x="60" y="141" fill="#FFFFFF" font-size="7.5" font-family="Inter,sans-serif" font-weight="700">28.4M</text><text x="108" y="115" fill="#1E4ED8" font-size="5.5" font-family="Inter,sans-serif">● Personal 40%</text><text x="108" y="127" fill="#49A5FF" font-size="5.5" font-family="Inter,sans-serif">● Business 22%</text><text x="108" y="139" fill="#76C6FF" font-size="5.5" font-family="Inter,sans-serif">● Emergency 13%</text><text x="108" y="151" fill="#64748B" font-size="5.5" font-family="Inter,sans-serif">● Other 25%</text><rect x="144" y="86" width="144" height="80" fill="#0F2D5A" rx="6"/><text x="152" y="98" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Savings Growth</text><polyline points="152,158 172,152 192,145 212,140 232,132 252,124 272,115" fill="none" stroke="#2ECC71" stroke-width="2" stroke-linecap="round"/><path d="M152,158 L172,152 L192,145 L212,140 L232,132 L252,124 L272,115 L272,165 L152,165 Z" fill="rgba(46,204,113,0.1)"/><text x="152" y="170" fill="#64748B" font-size="5" font-family="Inter,sans-serif">Q1 · Q2 · Q3 · Q4 · Q5 · Q6 · Q7</text><rect x="294" y="86" width="78" height="80" fill="#0F2D5A" rx="6"/><text x="302" y="98" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Pending Loans</text><text x="302" y="112" fill="#F59E0B" font-size="5.5" font-family="Inter,sans-serif">⬤ M. Wanjiku 50K</text><text x="302" y="124" fill="#F59E0B" font-size="5.5" font-family="Inter,sans-serif">⬤ J. Otieno 120K</text><text x="302" y="136" fill="#2ECC71" font-size="5.5" font-family="Inter,sans-serif">✓ P. Njoroge 80K</text><text x="302" y="148" fill="#2ECC71" font-size="5.5" font-family="Inter,sans-serif">✓ A. Muthoni 30K</text><text x="302" y="160" fill="#EF4444" font-size="5.5" font-family="Inter,sans-serif">✗ K. Kamau 200K</text><rect x="8" y="172" width="364" height="40" fill="#0F2D5A" rx="6"/><text x="16" y="184" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Recent Transactions</text><text x="16" y="197" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Grace Akinyi · Savings Deposit · KES 5,000 · 09:14 AM</text><text x="16" y="208" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">David Odhiambo · Loan Repayment · KES 12,500 · 09:02 AM</text></svg>
+          <div class="spc-overlay"><span>View Preview</span></div>
+        </div>
+        <p class="spc-desc">Grow your SACCO with automated lending, savings and member management tools.</p>
+        <button class="spc-cta" onclick="scrollToContact()">Request Demo</button>
+      </div>
+
+      <!-- KodiSphere -->
+      <div class="spc" data-cat="property">
+        <div class="spc-head"><div class="spc-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z" stroke="#49A5FF" stroke-width="1.8"/><path d="M9 21V12h6v9" stroke="#49A5FF" stroke-width="1.8"/></svg></div><div><p class="spc-name">KodiSphere</p><span class="spc-badge property">Property</span></div></div>
+        <div class="spc-dash" onclick="openModal('kodisphere')">
+          <svg viewBox="0 0 380 220" xmlns="http://www.w3.org/2000/svg" class="spc-svg"><rect width="380" height="220" fill="#0B1E3F" rx="8"/><rect width="380" height="28" fill="#0D2552" rx="8"/><rect y="20" width="380" height="8" fill="#0D2552"/><circle cx="12" cy="14" r="4" fill="#8B5CF6"/><text x="22" y="18" fill="#76C6FF" font-size="7" font-family="Inter,sans-serif" font-weight="600">KodiSphere Property Management</text><rect x="8" y="34" width="82" height="44" fill="#0F2D5A" rx="6"/><text x="16" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Total Units</text><text x="16" y="63" fill="#FFFFFF" font-size="16" font-family="Inter,sans-serif" font-weight="700">284</text><rect x="96" y="34" width="82" height="44" fill="#0F2D5A" rx="6"/><text x="104" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Occupancy</text><text x="104" y="63" fill="#2ECC71" font-size="16" font-family="Inter,sans-serif" font-weight="700">91.5%</text><rect x="184" y="34" width="82" height="44" fill="#0F2D5A" rx="6"/><text x="192" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Monthly Rent</text><text x="192" y="63" fill="#49A5FF" font-size="13" font-family="Inter,sans-serif" font-weight="700">KES 3.8M</text><rect x="272" y="34" width="100" height="44" fill="#0F2D5A" rx="6"/><text x="280" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Open Maintenance</text><text x="280" y="63" fill="#F59E0B" font-size="16" font-family="Inter,sans-serif" font-weight="700">17</text><rect x="8" y="86" width="120" height="80" fill="#0F2D5A" rx="6"/><text x="16" y="98" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Occupancy by Block</text><rect x="16" y="108" width="90" height="8" fill="#1E4ED8" rx="2"/><text x="110" y="115" fill="#E2E8F0" font-size="5.5" font-family="Inter,sans-serif">A 98%</text><rect x="16" y="119" width="82" height="8" fill="#1E4ED8" rx="2"/><text x="102" y="126" fill="#E2E8F0" font-size="5.5" font-family="Inter,sans-serif">B 91%</text><rect x="16" y="130" width="76" height="8" fill="#49A5FF" rx="2"/><text x="96" y="137" fill="#E2E8F0" font-size="5.5" font-family="Inter,sans-serif">C 84%</text><rect x="16" y="141" width="70" height="8" fill="#49A5FF" rx="2"/><text x="90" y="148" fill="#E2E8F0" font-size="5.5" font-family="Inter,sans-serif">D 78%</text><rect x="16" y="152" width="58" height="8" fill="#F59E0B" rx="2"/><text x="78" y="159" fill="#E2E8F0" font-size="5.5" font-family="Inter,sans-serif">E 64%</text><rect x="134" y="86" width="150" height="80" fill="#0F2D5A" rx="6"/><text x="142" y="98" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Rental Revenue</text><rect x="142" y="130" width="14" height="28" fill="#1E4ED8" rx="2"/><rect x="160" y="120" width="14" height="38" fill="#1E4ED8" rx="2"/><rect x="178" y="110" width="14" height="48" fill="#49A5FF" rx="2"/><rect x="196" y="116" width="14" height="42" fill="#1E4ED8" rx="2"/><rect x="214" y="108" width="14" height="50" fill="#49A5FF" rx="2"/><rect x="232" y="102" width="14" height="56" fill="#76C6FF" rx="2"/><rect x="250" y="106" width="14" height="52" fill="#1E4ED8" rx="2"/><text x="142" y="168" fill="#64748B" font-size="5" font-family="Inter,sans-serif">Jan Feb Mar Apr May Jun Jul</text><rect x="290" y="86" width="82" height="80" fill="#0F2D5A" rx="6"/><text x="298" y="98" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Maintenance</text><text x="298" y="112" fill="#EF4444" font-size="5.5" font-family="Inter,sans-serif">● Plumbing A12</text><text x="298" y="124" fill="#EF4444" font-size="5.5" font-family="Inter,sans-serif">● Electrical B3</text><text x="298" y="136" fill="#F59E0B" font-size="5.5" font-family="Inter,sans-serif">⬤ Painting C7</text><text x="298" y="148" fill="#2ECC71" font-size="5.5" font-family="Inter,sans-serif">✓ Cleaned D1</text><text x="298" y="160" fill="#2ECC71" font-size="5.5" font-family="Inter,sans-serif">✓ Fixed E4</text><rect x="8" y="172" width="364" height="40" fill="#0F2D5A" rx="6"/><text x="16" y="184" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Lease Expiries (Next 30 days)</text><text x="16" y="197" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Unit A-14 · Mary Kamau · Exp 15 Aug · KES 18,000/mo</text><text x="16" y="208" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Unit B-07 · Peter Njiru · Exp 22 Aug · KES 22,500/mo</text></svg>
+          <div class="spc-overlay"><span>View Preview</span></div>
+        </div>
+        <p class="spc-desc">Manage properties, tenants and finances effortlessly — from lease tracking to rent collection.</p>
+        <button class="spc-cta" onclick="scrollToContact()">Request Demo</button>
+      </div>
+
+      <!-- MaziwaSync -->
+      <div class="spc" data-cat="agriculture">
+        <div class="spc-head"><div class="spc-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#49A5FF" stroke-width="1.8"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#49A5FF" stroke-width="1.8" stroke-linecap="round"/></svg></div><div><p class="spc-name">MaziwaSync</p><span class="spc-badge agriculture">Agriculture</span></div></div>
+        <div class="spc-dash" onclick="openModal('maziwa')">
+          <svg viewBox="0 0 380 220" xmlns="http://www.w3.org/2000/svg" class="spc-svg"><rect width="380" height="220" fill="#0B1E3F" rx="8"/><rect width="380" height="28" fill="#0D2552" rx="8"/><rect y="20" width="380" height="8" fill="#0D2552"/><circle cx="12" cy="14" r="4" fill="#22C55E"/><text x="22" y="18" fill="#76C6FF" font-size="7" font-family="Inter,sans-serif" font-weight="600">MaziwaSync — Dairy Cooperative ERP</text><rect x="8" y="34" width="82" height="44" fill="#0F2D5A" rx="6"/><text x="16" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Farmers Enrolled</text><text x="16" y="63" fill="#FFFFFF" font-size="16" font-family="Inter,sans-serif" font-weight="700">1,124</text><rect x="96" y="34" width="82" height="44" fill="#0F2D5A" rx="6"/><text x="104" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Today's Intake</text><text x="104" y="63" fill="#2ECC71" font-size="13" font-family="Inter,sans-serif" font-weight="700">8,420 L</text><rect x="184" y="34" width="82" height="44" fill="#0F2D5A" rx="6"/><text x="192" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Avg Fat Content</text><text x="192" y="63" fill="#49A5FF" font-size="16" font-family="Inter,sans-serif" font-weight="700">3.8%</text><rect x="272" y="34" width="100" height="44" fill="#0F2D5A" rx="6"/><text x="280" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Payments Due</text><text x="280" y="63" fill="#F59E0B" font-size="13" font-family="Inter,sans-serif" font-weight="700">KES 1.2M</text><rect x="8" y="86" width="174" height="80" fill="#0F2D5A" rx="6"/><text x="16" y="98" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Daily Milk Intake (Litres)</text><rect x="16" y="130" width="16" height="28" fill="#22C55E" rx="2"/><rect x="36" y="118" width="16" height="40" fill="#22C55E" rx="2"/><rect x="56" y="122" width="16" height="36" fill="#22C55E" rx="2"/><rect x="76" y="112" width="16" height="46" fill="#16A34A" rx="2"/><rect x="96" y="106" width="16" height="52" fill="#22C55E" rx="2"/><rect x="116" y="100" width="16" height="58" fill="#16A34A" rx="2"/><rect x="136" y="108" width="16" height="50" fill="#22C55E" rx="2"/><text x="16" y="168" fill="#64748B" font-size="5" font-family="Inter,sans-serif">Mon  Tue  Wed  Thu  Fri  Sat  Sun</text><rect x="188" y="86" width="92" height="80" fill="#0F2D5A" rx="6"/><text x="196" y="98" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Quality Metrics</text><text x="196" y="112" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Fat Content</text><rect x="196" y="116" width="76" height="6" fill="#1E3A6E" rx="3"/><rect x="196" y="116" width="58" height="6" fill="#22C55E" rx="3"/><text x="196" y="130" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Protein</text><rect x="196" y="134" width="76" height="6" fill="#1E3A6E" rx="3"/><rect x="196" y="134" width="66" height="6" fill="#49A5FF" rx="3"/><text x="196" y="148" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Bacteria Count</text><rect x="196" y="152" width="76" height="6" fill="#1E3A6E" rx="3"/><rect x="196" y="152" width="30" height="6" fill="#2ECC71" rx="3"/><rect x="286" y="86" width="86" height="80" fill="#0F2D5A" rx="6"/><text x="294" y="98" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Top Farmers</text><text x="294" y="112" fill="#76C6FF" font-size="5.5" font-family="Inter,sans-serif">1. J. Mwangi — 82L</text><text x="294" y="124" fill="#76C6FF" font-size="5.5" font-family="Inter,sans-serif">2. M. Otieno — 74L</text><text x="294" y="136" fill="#76C6FF" font-size="5.5" font-family="Inter,sans-serif">3. A. Kamau — 68L</text><text x="294" y="148" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">4. P. Wanjiru — 61L</text><text x="294" y="160" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">5. C. Njoroge — 57L</text><rect x="8" y="172" width="364" height="40" fill="#0F2D5A" rx="6"/><text x="16" y="184" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Today's Collection Routes</text><text x="16" y="197" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Route A (Tetu) · 34 farmers · 2,840L collected · Lorry KBZ 441K</text><text x="16" y="208" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Route B (Othaya) · 28 farmers · 2,210L collected · Lorry KBT 222X</text></svg>
+          <div class="spc-overlay"><span>View Preview</span></div>
+        </div>
+        <p class="spc-desc">Digital operations platform for dairy cooperatives — milk intake, farmer payments and quality control.</p>
+        <button class="spc-cta" onclick="scrollToContact()">Request Demo</button>
+      </div>
+
+      <!-- TillPoint -->
+      <div class="spc" data-cat="retail">
+        <div class="spc-head"><div class="spc-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="#49A5FF" stroke-width="1.8"/><path d="M7 8h10M7 12h6" stroke="#49A5FF" stroke-width="1.8" stroke-linecap="round"/></svg></div><div><p class="spc-name">TillPoint</p><span class="spc-badge retail">Retail</span></div></div>
+        <div class="spc-dash" onclick="openModal('tillpoint')">
+          <svg viewBox="0 0 380 220" xmlns="http://www.w3.org/2000/svg" class="spc-svg"><rect width="380" height="220" fill="#0B1E3F" rx="8"/><rect width="380" height="28" fill="#0D2552" rx="8"/><rect y="20" width="380" height="8" fill="#0D2552"/><circle cx="12" cy="14" r="4" fill="#F97316"/><text x="22" y="18" fill="#76C6FF" font-size="7" font-family="Inter,sans-serif" font-weight="600">TillPoint Retail POS</text><rect x="8" y="34" width="82" height="44" fill="#0F2D5A" rx="6"/><text x="16" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Today's Sales</text><text x="16" y="63" fill="#FFFFFF" font-size="13" font-family="Inter,sans-serif" font-weight="700">KES 284,100</text><rect x="96" y="34" width="82" height="44" fill="#0F2D5A" rx="6"/><text x="104" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Transactions</text><text x="104" y="63" fill="#2ECC71" font-size="16" font-family="Inter,sans-serif" font-weight="700">1,842</text><rect x="184" y="34" width="82" height="44" fill="#0F2D5A" rx="6"/><text x="192" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Gross Margin</text><text x="192" y="63" fill="#49A5FF" font-size="16" font-family="Inter,sans-serif" font-weight="700">24.8%</text><rect x="272" y="34" width="100" height="44" fill="#0F2D5A" rx="6"/><text x="280" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Low Stock Items</text><text x="280" y="63" fill="#EF4444" font-size="16" font-family="Inter,sans-serif" font-weight="700">23</text><rect x="8" y="86" width="180" height="80" fill="#0F2D5A" rx="6"/><text x="16" y="98" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Hourly Sales Performance</text><rect x="16" y="148" width="12" height="10" fill="#1E4ED8" rx="1"/><rect x="32" y="138" width="12" height="20" fill="#1E4ED8" rx="1"/><rect x="48" y="128" width="12" height="30" fill="#49A5FF" rx="1"/><rect x="64" y="124" width="12" height="34" fill="#49A5FF" rx="1"/><rect x="80" y="110" width="12" height="48" fill="#76C6FF" rx="1"/><rect x="96" y="114" width="12" height="44" fill="#49A5FF" rx="1"/><rect x="112" y="125" width="12" height="33" fill="#1E4ED8" rx="1"/><rect x="128" y="132" width="12" height="26" fill="#1E4ED8" rx="1"/><rect x="144" y="120" width="12" height="38" fill="#49A5FF" rx="1"/><rect x="160" y="108" width="12" height="50" fill="#76C6FF" rx="1"/><text x="16" y="168" fill="#64748B" font-size="4.5" font-family="Inter,sans-serif">8AM 9AM 10A 11A 12P 1PM 2PM 3PM 4PM 5PM</text><rect x="194" y="86" width="88" height="80" fill="#0F2D5A" rx="6"/><text x="202" y="98" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Sales by Category</text><rect x="202" y="104" width="60" height="8" fill="#1E4ED8" rx="2"/><text x="266" y="111" fill="#94A3B8" font-size="5">Grocery 40%</text><rect x="202" y="115" width="42" height="8" fill="#49A5FF" rx="2"/><text x="248" y="122" fill="#94A3B8" font-size="5">Fresh 28%</text><rect x="202" y="126" width="24" height="8" fill="#76C6FF" rx="2"/><text x="230" y="133" fill="#94A3B8" font-size="5">Pharma 16%</text><rect x="202" y="137" width="18" height="8" fill="#F97316" rx="2"/><text x="224" y="144" fill="#94A3B8" font-size="5">Home 12%</text><rect x="288" y="86" width="84" height="80" fill="#0F2D5A" rx="6"/><text x="296" y="98" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Top SKUs Today</text><text x="296" y="112" fill="#76C6FF" font-size="5.5" font-family="Inter,sans-serif">Maize Flour 2kg ×320</text><text x="296" y="124" fill="#76C6FF" font-size="5.5" font-family="Inter,sans-serif">Cooking Oil 1L ×280</text><text x="296" y="136" fill="#76C6FF" font-size="5.5" font-family="Inter,sans-serif">Sugar 1kg ×240</text><text x="296" y="148" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Tea 250g ×190</text><text x="296" y="160" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Bread 400g ×170</text><rect x="8" y="172" width="364" height="40" fill="#0F2D5A" rx="6"/><text x="16" y="184" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Recent Transactions — KRA ETR Integrated</text><text x="16" y="197" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Till 3 · 14:32 · KES 1,840 · M-Pesa · Receipt ETR-2024-08140-0041</text><text x="16" y="208" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Till 1 · 14:29 · KES 620 · Cash · Receipt ETR-2024-08140-0040</text></svg>
+          <div class="spc-overlay"><span>View Preview</span></div>
+        </div>
+        <p class="spc-desc">Modern POS for smarter retail — real-time inventory, multi-branch, KRA ETR compliance.</p>
+        <button class="spc-cta" onclick="scrollToContact()">Request Demo</button>
+      </div>
+
+      <!-- AfyaRx -->
+      <div class="spc" data-cat="healthcare">
+        <div class="spc-head"><div class="spc-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="14" rx="2" stroke="#49A5FF" stroke-width="1.8"/><path d="M3 10h18M11 14h2m-1-1v2" stroke="#49A5FF" stroke-width="1.8" stroke-linecap="round"/></svg></div><div><p class="spc-name">AfyaRx</p><span class="spc-badge healthcare">Healthcare</span></div></div>
+        <div class="spc-dash" onclick="openModal('afyarx')">
+          <svg viewBox="0 0 380 220" xmlns="http://www.w3.org/2000/svg" class="spc-svg"><rect width="380" height="220" fill="#0B1E3F" rx="8"/><rect width="380" height="28" fill="#0D2552" rx="8"/><rect y="20" width="380" height="8" fill="#0D2552"/><circle cx="12" cy="14" r="4" fill="#EC4899"/><text x="22" y="18" fill="#76C6FF" font-size="7" font-family="Inter,sans-serif" font-weight="600">AfyaRx Pharmacy Management</text><rect x="8" y="34" width="82" height="44" fill="#0F2D5A" rx="6"/><text x="16" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Drugs in Stock</text><text x="16" y="63" fill="#FFFFFF" font-size="16" font-family="Inter,sans-serif" font-weight="700">2,840</text><rect x="96" y="34" width="82" height="44" fill="#0F2D5A" rx="6"/><text x="104" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Today's Sales</text><text x="104" y="63" fill="#2ECC71" font-size="13" font-family="Inter,sans-serif" font-weight="700">KES 84,200</text><rect x="184" y="34" width="82" height="44" fill="#0F2D5A" rx="6"/><text x="192" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Expiring Soon</text><text x="192" y="63" fill="#EF4444" font-size="16" font-family="Inter,sans-serif" font-weight="700">47</text><rect x="272" y="34" width="100" height="44" fill="#0F2D5A" rx="6"/><text x="280" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Prescriptions Today</text><text x="280" y="63" fill="#49A5FF" font-size="16" font-family="Inter,sans-serif" font-weight="700">128</text><rect x="8" y="86" width="120" height="80" fill="#0F2D5A" rx="6"/><text x="16" y="98" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Stock by Category</text><text x="16" y="112" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Antibiotics</text><rect x="64" y="107" width="46" height="6" fill="#1E4ED8" rx="2"/><text x="114" y="112" fill="#76C6FF" font-size="5.5" font-family="Inter,sans-serif">840</text><text x="16" y="124" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Analgesics</text><rect x="64" y="119" width="38" height="6" fill="#1E4ED8" rx="2"/><text x="106" y="124" fill="#76C6FF" font-size="5.5" font-family="Inter,sans-serif">720</text><text x="16" y="136" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Antivirals</text><rect x="64" y="131" width="30" height="6" fill="#49A5FF" rx="2"/><text x="98" y="136" fill="#76C6FF" font-size="5.5" font-family="Inter,sans-serif">580</text><text x="16" y="148" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Supplements</text><rect x="64" y="143" width="22" height="6" fill="#76C6FF" rx="2"/><text x="90" y="148" fill="#76C6FF" font-size="5.5" font-family="Inter,sans-serif">440</text><rect x="134" y="86" width="152" height="80" fill="#0F2D5A" rx="6"/><text x="142" y="98" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Daily Sales Revenue</text><polyline points="142,158 163,148 184,142 205,136 226,128 247,122 268,116" fill="none" stroke="#EC4899" stroke-width="2" stroke-linecap="round"/><path d="M142,158 L163,148 L184,142 L205,136 L226,128 L247,122 L268,116 L268,162 L142,162 Z" fill="rgba(236,72,153,0.1)"/><text x="142" y="170" fill="#64748B" font-size="5" font-family="Inter,sans-serif">Mon · Tue · Wed · Thu · Fri · Sat · Sun</text><rect x="292" y="86" width="80" height="80" fill="#0F2D5A" rx="6"/><text x="300" y="98" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Expiry Alerts</text><text x="300" y="112" fill="#EF4444" font-size="5.5" font-family="Inter,sans-serif">● Amoxil 500mg</text><text x="300" y="124" fill="#EF4444" font-size="5.5" font-family="Inter,sans-serif">● Flagyl 200mg</text><text x="300" y="136" fill="#F59E0B" font-size="5.5" font-family="Inter,sans-serif">⬤ Paracetamol</text><text x="300" y="148" fill="#F59E0B" font-size="5.5" font-family="Inter,sans-serif">⬤ Coartem 80mg</text><text x="300" y="160" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">OK Metformin</text><rect x="8" y="172" width="364" height="40" fill="#0F2D5A" rx="6"/><text x="16" y="184" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Recent Dispensing</text><text x="16" y="197" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Rx-041 · Grace Wanjiku · Amoxil + Paracetamol · KES 480 · 14:22</text><text x="16" y="208" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Rx-040 · James Otieno · Metformin + BP meds · KES 1,240 · 14:10</text></svg>
+          <div class="spc-overlay"><span>View Preview</span></div>
+        </div>
+        <p class="spc-desc">Pharmacy operations simplified — stock control, dispensing records and supplier management.</p>
+        <button class="spc-cta" onclick="scrollToContact()">Request Demo</button>
+      </div>
+
+      <!-- UmojaFunds -->
+      <div class="spc" data-cat="finance">
+        <div class="spc-head"><div class="spc-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="#49A5FF" stroke-width="1.8"/><circle cx="9" cy="7" r="4" stroke="#49A5FF" stroke-width="1.8"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="#49A5FF" stroke-width="1.8" stroke-linecap="round"/></svg></div><div><p class="spc-name">UmojaFunds</p><span class="spc-badge finance">Finance</span></div></div>
+        <div class="spc-dash" onclick="openModal('umoja')">
+          <svg viewBox="0 0 380 220" xmlns="http://www.w3.org/2000/svg" class="spc-svg"><rect width="380" height="220" fill="#0B1E3F" rx="8"/><rect width="380" height="28" fill="#0D2552" rx="8"/><rect y="20" width="380" height="8" fill="#0D2552"/><circle cx="12" cy="14" r="4" fill="#A855F7"/><text x="22" y="18" fill="#76C6FF" font-size="7" font-family="Inter,sans-serif" font-weight="600">UmojaFunds — Chama Investment Group</text><rect x="8" y="34" width="82" height="44" fill="#0F2D5A" rx="6"/><text x="16" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Members</text><text x="16" y="63" fill="#FFFFFF" font-size="16" font-family="Inter,sans-serif" font-weight="700">48</text><rect x="96" y="34" width="82" height="44" fill="#0F2D5A" rx="6"/><text x="104" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Total Savings</text><text x="104" y="63" fill="#2ECC71" font-size="13" font-family="Inter,sans-serif" font-weight="700">KES 4.8M</text><rect x="184" y="34" width="82" height="44" fill="#0F2D5A" rx="6"/><text x="192" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Investments</text><text x="192" y="63" fill="#A855F7" font-size="13" font-family="Inter,sans-serif" font-weight="700">KES 12.1M</text><rect x="272" y="34" width="100" height="44" fill="#0F2D5A" rx="6"/><text x="280" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Returns YTD</text><text x="280" y="63" fill="#49A5FF" font-size="16" font-family="Inter,sans-serif" font-weight="700">18.4%</text><rect x="8" y="86" width="120" height="80" fill="#0F2D5A" rx="6"/><text x="16" y="98" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Investment Portfolio</text><circle cx="64" cy="138" r="26" fill="none" stroke="#1E3A6E" stroke-width="12"/><circle cx="64" cy="138" r="26" fill="none" stroke="#A855F7" stroke-width="12" stroke-dasharray="82 81" stroke-dashoffset="20" transform="rotate(-90 64 138)"/><circle cx="64" cy="138" r="26" fill="none" stroke="#1E4ED8" stroke-width="12" stroke-dasharray="48 115" stroke-dashoffset="-62" transform="rotate(-90 64 138)"/><circle cx="64" cy="138" r="26" fill="none" stroke="#22C55E" stroke-width="12" stroke-dasharray="31 132" stroke-dashoffset="-110" transform="rotate(-90 64 138)"/><text x="100" y="112" fill="#A855F7" font-size="5.5" font-family="Inter,sans-serif">● Real Estate 51%</text><text x="100" y="124" fill="#49A5FF" font-size="5.5" font-family="Inter,sans-serif">● NSE Stocks 30%</text><text x="100" y="136" fill="#22C55E" font-size="5.5" font-family="Inter,sans-serif">● MMF 19%</text><rect x="134" y="86" width="152" height="80" fill="#0F2D5A" rx="6"/><text x="142" y="98" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Net Asset Value Growth</text><polyline points="142,162 163,155 184,148 205,140 226,130 247,120 268,112 286,104" fill="none" stroke="#A855F7" stroke-width="2" stroke-linecap="round"/><path d="M142,162 L163,155 L184,148 L205,140 L226,130 L247,120 L268,112 L286,104 L286,165 L142,165 Z" fill="rgba(168,85,247,0.1)"/><text x="142" y="172" fill="#64748B" font-size="5" font-family="Inter,sans-serif">2018 2019 2020 2021 2022 2023 2024</text><rect x="292" y="86" width="80" height="80" fill="#0F2D5A" rx="6"/><text x="300" y="98" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Contributions</text><text x="300" y="112" fill="#2ECC71" font-size="5.5" font-family="Inter,sans-serif">✓ M. Kamau 5K</text><text x="300" y="124" fill="#2ECC71" font-size="5.5" font-family="Inter,sans-serif">✓ J. Otieno 5K</text><text x="300" y="136" fill="#F59E0B" font-size="5.5" font-family="Inter,sans-serif">⬤ A. Wanjiku 0</text><text x="300" y="148" fill="#2ECC71" font-size="5.5" font-family="Inter,sans-serif">✓ P. Njoroge 5K</text><text x="300" y="160" fill="#EF4444" font-size="5.5" font-family="Inter,sans-serif">✗ D. Mwenda 0</text><rect x="8" y="172" width="364" height="40" fill="#0F2D5A" rx="6"/><text x="16" y="184" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Next Meeting — 25 Aug 2024 · Agenda: Dividend Declaration</text><text x="16" y="197" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Proposed Dividend: KES 8,400 per member · Total Payout: KES 403,200</text><text x="16" y="208" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Loan Book Outstanding: KES 1.2M (14 active loans) · NPL: 0%</text></svg>
+          <div class="spc-overlay"><span>View Preview</span></div>
+        </div>
+        <p class="spc-desc">Modern digital management for chamas — contributions, loans, investments and dividends.</p>
+        <button class="spc-cta" onclick="scrollToContact()">Request Demo</button>
+      </div>
+
+      <!-- PayMatch -->
+      <div class="spc" data-cat="fintech">
+        <div class="spc-head"><div class="spc-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#49A5FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><rect x="2" y="4" width="20" height="16" rx="2" stroke="#49A5FF" stroke-width="1.8"/></svg></div><div><p class="spc-name">PayMatch</p><span class="spc-badge fintech">FinTech</span></div></div>
+        <div class="spc-dash" onclick="openModal('paymatch')">
+          <svg viewBox="0 0 380 220" xmlns="http://www.w3.org/2000/svg" class="spc-svg"><rect width="380" height="220" fill="#0B1E3F" rx="8"/><rect width="380" height="28" fill="#0D2552" rx="8"/><rect y="20" width="380" height="8" fill="#0D2552"/><circle cx="12" cy="14" r="4" fill="#06B6D4"/><text x="22" y="18" fill="#76C6FF" font-size="7" font-family="Inter,sans-serif" font-weight="600">PayMatch M-PESA Reconciliation</text><rect x="8" y="34" width="82" height="44" fill="#0F2D5A" rx="6"/><text x="16" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Transactions Today</text><text x="16" y="63" fill="#FFFFFF" font-size="15" font-family="Inter,sans-serif" font-weight="700">12,840</text><rect x="96" y="34" width="82" height="44" fill="#0F2D5A" rx="6"/><text x="104" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Auto-Matched</text><text x="104" y="63" fill="#2ECC71" font-size="14" font-family="Inter,sans-serif" font-weight="700">12,641</text><rect x="184" y="34" width="82" height="44" fill="#0F2D5A" rx="6"/><text x="192" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Unmatched</text><text x="192" y="63" fill="#EF4444" font-size="16" font-family="Inter,sans-serif" font-weight="700">199</text><rect x="272" y="34" width="100" height="44" fill="#0F2D5A" rx="6"/><text x="280" y="48" fill="#94A3B8" font-size="6" font-family="Inter,sans-serif">Match Rate</text><text x="280" y="63" fill="#06B6D4" font-size="16" font-family="Inter,sans-serif" font-weight="700">98.4%</text><rect x="8" y="86" width="120" height="80" fill="#0F2D5A" rx="6"/><text x="16" y="98" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Reconciliation Status</text><circle cx="64" cy="136" r="26" fill="none" stroke="#1E3A6E" stroke-width="12"/><circle cx="64" cy="136" r="26" fill="none" stroke="#22C55E" stroke-width="12" stroke-dasharray="160 3" stroke-dashoffset="20" transform="rotate(-90 64 136)"/><circle cx="64" cy="136" r="26" fill="none" stroke="#EF4444" stroke-width="12" stroke-dasharray="3 160" stroke-dashoffset="-140" transform="rotate(-90 64 136)"/><text x="55" y="139" fill="#FFFFFF" font-size="9" font-family="Inter,sans-serif" font-weight="700">98.4%</text><text x="100" y="118" fill="#22C55E" font-size="5.5" font-family="Inter,sans-serif">● Matched 98.4%</text><text x="100" y="130" fill="#EF4444" font-size="5.5" font-family="Inter,sans-serif">● Exception 1.6%</text><rect x="134" y="86" width="162" height="80" fill="#0F2D5A" rx="6"/><text x="142" y="98" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Transaction Volume (Hourly)</text><polyline points="142,155 162,148 182,140 202,132 222,120 242,128 262,118 282,110" fill="none" stroke="#06B6D4" stroke-width="2" stroke-linecap="round"/><path d="M142,155 L162,148 L182,140 L202,132 L222,120 L242,128 L262,118 L282,110 L282,160 L142,160 Z" fill="rgba(6,182,212,0.1)"/><text x="142" y="170" fill="#64748B" font-size="5" font-family="Inter,sans-serif">8AM 9AM 10A 11A 12P 1PM 2PM 3PM</text><rect x="302" y="86" width="70" height="80" fill="#0F2D5A" rx="6"/><text x="310" y="98" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Exceptions</text><text x="310" y="112" fill="#EF4444" font-size="5.5" font-family="Inter,sans-serif">● REF-04411</text><text x="310" y="124" fill="#EF4444" font-size="5.5" font-family="Inter,sans-serif">● REF-04412</text><text x="310" y="136" fill="#F59E0B" font-size="5.5" font-family="Inter,sans-serif">⬤ REF-04413</text><text x="310" y="148" fill="#F59E0B" font-size="5.5" font-family="Inter,sans-serif">⬤ REF-04414</text><text x="310" y="160" fill="#EF4444" font-size="5.5" font-family="Inter,sans-serif">● REF-04415</text><rect x="8" y="172" width="364" height="40" fill="#0F2D5A" rx="6"/><text x="16" y="184" fill="#E2E8F0" font-size="6" font-family="Inter,sans-serif" font-weight="600">Reconciliation Report — Auto-Generated 14:00</text><text x="16" y="197" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Paybill 123456 · Period 08:00–14:00 · Expected KES 48.4M · Received KES 48.1M · Variance 300K</text><text x="16" y="208" fill="#94A3B8" font-size="5.5" font-family="Inter,sans-serif">Exception Report dispatched to finance@company.co.ke · 199 items flagged</text></svg>
+          <div class="spc-overlay"><span>View Preview</span></div>
+        </div>
+        <p class="spc-desc">Automated M-PESA Paybill reconciliation — catch every exception instantly, zero manual effort.</p>
+        <button class="spc-cta" onclick="scrollToContact()">Request Demo</button>
+      </div>
+
+    </div><!-- /suite-grid -->
+
+    <!-- Bottom CTA -->
+    <div class="suite-cta reveal">
+      <h3 class="suite-cta-title">See how the Mvule Suite can transform your business.</h3>
+      <p class="suite-cta-sub">Book a personalised demo with our experts and discover software built for African realities.</p>
+      <button class="suite-cta-btn" onclick="scrollToContact()">
+        <span class="material-symbols-outlined" style="font-size:18px;vertical-align:middle;margin-right:6px">calendar_month</span>Request a Demo
+      </button>
+    </div>
+
   </div>
 </section>
+
+<!-- PRODUCT MODAL -->
+<div class="spc-modal" id="spcModal">
+  <div class="spc-modal-box">
+    <button class="spc-modal-x" onclick="closeModal()">&#10005;</button>
+    <div id="spcModalBody"></div>
+  </div>
+</div>
 
 <!-- SERVICES -->
 <section id="services">
@@ -977,6 +1101,63 @@ document.querySelector('.btn-submit').addEventListener('click', function() {
     this.style.background = '';
   }, 3000);
 });
+
+// ── SUITE SHOWCASE JS ──
+// Background particles
+(function(){
+  var cvs=document.getElementById('suiteBgCanvas');
+  if(!cvs)return;
+  var ctx=cvs.getContext('2d'),W,H,pts=[];
+  function resize(){W=cvs.width=cvs.parentElement.offsetWidth;H=cvs.height=cvs.parentElement.offsetHeight;}
+  resize();window.addEventListener('resize',resize);
+  for(var i=0;i<50;i++)pts.push({x:Math.random()*1400,y:Math.random()*800,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,r:Math.random()*1.4+.4,a:Math.random()*.3+.05});
+  (function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<pts.length;i++){for(var j=i+1;j<pts.length;j++){var dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<120){ctx.beginPath();ctx.strokeStyle='rgba(30,78,216,'+(0.08*(1-d/120))+')';ctx.lineWidth=.7;ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.stroke();}}}
+    pts.forEach(function(p){ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(73,165,255,'+p.a+')';ctx.fill();p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;});
+    requestAnimationFrame(draw);
+  })();
+})();
+
+// Filter tabs
+(function(){
+  var tabs=document.querySelectorAll('.sft');
+  var cards=document.querySelectorAll('.spc');
+  if(!tabs.length)return;
+  tabs.forEach(function(tab){
+    tab.addEventListener('click',function(){
+      tabs.forEach(function(t){t.classList.remove('active');});
+      this.classList.add('active');
+      var f=this.dataset.filter;
+      cards.forEach(function(c){
+        if(f==='all'||c.dataset.cat===f){c.classList.remove('hidden');c.classList.add('spc-in');setTimeout(function(){c.classList.remove('spc-in');},400);}
+        else{c.classList.add('hidden');}
+      });
+    });
+  });
+})();
+
+// Modal
+var MDATA={
+  shulehub:{name:'ShuleHub',badge:'Education',bc:'education',desc:'Complete school management for primary, secondary, colleges and universities — CBC compliant, M-Pesa integrated, parent portal included.',feats:['Fee Management & M-Pesa STK Push','CBC Exams, Rubrics & Grade Reports','Parent Portal & SMS Alerts','Admissions & Student Profiles','Attendance Tracking','Staff & Payroll Management']},
+  aqualedger:{name:'AquaLedger',badge:'Utilities',bc:'utilities',desc:'Smart billing platform for water service providers — automated meter reading, consumer billing, revenue analytics and NRW reporting.',feats:['Automated Meter Reading','Consumer Billing & Statements','M-Pesa Paybill Integration','Zone Revenue Analytics','Non-Revenue Water Reports','Bulk Disconnection & Reconnection']},
+  nurucapital:{name:'NuruCapital',badge:'Finance',bc:'finance',desc:'Digital platform for SACCOs and MFIs — member management, savings, loan processing and SASRA-compliant regulatory reporting.',feats:['Member Onboarding & KYC','Loan Application & Approval','Savings & Fixed Deposits','Dividend Computation','SASRA Regulatory Reports','Mobile Banking Integration']},
+  kodisphere:{name:'KodiSphere',badge:'Property',bc:'property',desc:'End-to-end property management — lease tracking, M-Pesa rent collection, maintenance ticketing and tenant portals.',feats:['Multi-Property Portfolio','Lease Tracking & Renewals','Automated Rent Reminders','Maintenance Ticketing','Utility Bill Management','Vacancy & Occupancy Reports']},
+  maziwa:{name:'MaziwaSync',badge:'Agriculture',bc:'agriculture',desc:'Digital operations for dairy cooperatives — daily milk intake per farmer, quality grading, route management and automated payments.',feats:['Daily Milk Intake Recording','Quality Grading (FAT/SNF)','Farmer Payment Calculation','Route & Collection Management','Chilling Plant Integration','Monthly Farmer Statements']},
+  tillpoint:{name:'TillPoint',badge:'Retail POS',bc:'retail',desc:'Modern retail POS with real-time inventory, multi-branch support and full KRA TIMS ETR compliance built in from day one.',feats:['Multi-Branch POS','Real-time Inventory Sync','KRA TIMS ETR Integration','M-Pesa & Card Payments','Customer Loyalty Programme','Supplier & Purchase Orders']},
+  afyarx:{name:'AfyaRx',badge:'Healthcare',bc:'healthcare',desc:'Pharmacy management covering drug inventory, dispensing records, expiry tracking, batch control and supplier management.',feats:['Drug Inventory Management','Prescription Dispensing Records','Expiry Date & Batch Alerts','Supplier & Purchase Orders','Sales & Profitability Reports','NHIF Claims Management']},
+  umoja:{name:'UmojaFunds',badge:'Finance',bc:'finance',desc:'Modern digital management for investment groups and chamas — contributions, loans, investment portfolio tracking and dividend processing.',feats:['Monthly Contribution Tracking','Loan Application & Repayment','Investment Portfolio Tracker','Dividend Computation & Payment','Meeting Minutes & Resolutions','WhatsApp Statement Delivery']},
+  paymatch:{name:'PayMatch',badge:'FinTech',bc:'fintech',desc:'Automated M-PESA Paybill reconciliation — match thousands of transactions per minute, flag exceptions instantly, zero manual effort.',feats:['Real-time Transaction Matching','Exception Flagging & Alerts','Multi-Paybill Support','CSV / ERP Export','Daily Reconciliation Reports','Finance Team Dashboard']},
+};
+function openModal(id){
+  var d=MDATA[id];if(!d)return;
+  document.getElementById('spcModalBody').innerHTML='<h2>'+d.name+'</h2><span class="spc-badge '+d.bc+'" style="margin-bottom:1rem;display:inline-block">'+d.badge+'</span><p class="mdesc">'+d.desc+'</p><h4>Key Features</h4><ul class="mfeats">'+d.feats.map(function(f){return'<li>'+f+'</li>';}).join('')+'</ul><button class="mcta" onclick="scrollToContact();closeModal()"><span class="material-symbols-outlined" style="vertical-align:middle;font-size:18px;margin-right:6px">calendar_month</span>Request a Demo for '+d.name+'</button>';
+  document.getElementById('spcModal').classList.add('open');
+  document.body.classList.add('nav-open');
+}
+function closeModal(){document.getElementById('spcModal').classList.remove('open');document.body.classList.remove('nav-open');}
+document.getElementById('spcModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
 </script>
 </body>
 </html>
